@@ -1,6 +1,29 @@
 # StardustSoftwareNZ.github.io
 Stardust Software NZ Website
 
+## Organisation 
+
+This repository contains these directories. 
+
+```
+.
+├── src
+├── Cargo.toml
+├── index.html
+├── LICENSE
+├── README.md
+├── styles.css
+└── Trunk.toml
+```
+
+- [**srcs**](src) contains the source files for the website.
+- [**Cargo.toml**](Cargo.toml) contains the dependencies for the website.
+- [**index.html**](index.html) loads the rust wasm file.
+- [**LICENSE**](LICENSE) biolerplate MIT license.
+- [**README.md**](README.md) this file.
+- [**styles.css**](styles.css) contains the css for the website.
+- [**Trunk.toml**](Trunk.toml) contains config for the trunk utility.
+
 ## Rust Frontend 
 
 Build a simple Rust frontend web application using Yew. 
