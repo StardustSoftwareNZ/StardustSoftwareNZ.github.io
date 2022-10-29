@@ -31,7 +31,7 @@ fn app() -> Html {
 
     html! {
         <div>
-            <h1> {"Stardust Software NZ"} </h1>
+            <h1> {"Stardust"} </h1>
             <button {onclick}>{"+1"}</button>
             <p>{state.value}</p>
         </div>

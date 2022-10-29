@@ -4,33 +4,6 @@
         <link rel="icon" type="image/png" href="/public/logo.png">
         <link rel="stylesheet" href="/styles-bb6e6a1c7b4c0e55.css">
     
-<link rel="preload" href="/website-e076d1971e06a19c_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/website-e076d1971e06a19c.js"></head>
-<body><script type="module">import init from '/website-e076d1971e06a19c.js';init('/website-e076d1971e06a19c_bg.wasm');</script><script>(function () {
-    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    var url = protocol + '//' + window.location.host + '/_trunk/ws';
-    var poll_interval = 5000;
-    var reload_upon_connect = () => {
-        window.setTimeout(
-            () => {
-                // when we successfully reconnect, we'll force a
-                // reload (since we presumably lost connection to
-                // trunk due to it being killed, so it will have
-                // rebuilt on restart)
-                var ws = new WebSocket(url);
-                ws.onopen = () => window.location.reload();
-                ws.onclose = reload_upon_connect;
-            },
-            poll_interval);
-    };
-
-    var ws = new WebSocket(url);
-    ws.onmessage = (ev) => {
-        const msg = JSON.parse(ev.data);
-        if (msg.reload) {
-            window.location.reload();
-        }
-    };
-    ws.onclose = reload_upon_connect;
-})()
-</script></body></html>
+<link rel="preload" href="/website-18591598f57219e5_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/website-18591598f57219e5.js"></head>
+<body><script type="module">import init from '/website-18591598f57219e5.js';init('/website-18591598f57219e5_bg.wasm');</script></body></html>
