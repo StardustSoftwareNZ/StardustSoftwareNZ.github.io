@@ -49,7 +49,13 @@ $ rustup target add wasm32-unknown-unknown
 Create a package 
 
 ```bash
-$ cargo new website 
+$ cargo new my-app 
+```
+
+Change directory
+
+```bash
+$ cd my-app
 ```
 
 ## Serve 
