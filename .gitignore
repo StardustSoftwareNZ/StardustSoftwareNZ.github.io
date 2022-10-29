@@ -1,8 +1,8 @@
 # Target output build files. 
 /target
 
-# Compiled Javascript/HTML/CSS files.
-/dist
-
 # Cargo lock file.
 Cargo.lock
+
+# Compiled Javascript/HTML/CSS files.
+# /dist
