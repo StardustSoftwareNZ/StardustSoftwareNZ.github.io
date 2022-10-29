@@ -1,12 +1,19 @@
 # StardustSoftwareNZ.github.io
 Stardust Software NZ Website
 
+## Rust Frontend 
+
+Build a simple Rust frontend web application using Yew. 
+
+Tutorial https://www.youtube.com/watch?v=MddGbXgIt2E&t=3s
+
 ## Organisation 
 
 This repository contains these directories. 
 
 ```
 .
+├── docs
 ├── src
 ├── Cargo.toml
 ├── index.html
@@ -16,6 +23,7 @@ This repository contains these directories.
 └── Trunk.toml
 ```
 
+- [**docs**](docs) contains the production build of the website.
 - [**srcs**](src) contains the source files for the website.
 - [**Cargo.toml**](Cargo.toml) contains the dependencies for the website.
 - [**index.html**](index.html) loads the rust wasm file.
@@ -24,13 +32,7 @@ This repository contains these directories.
 - [**styles.css**](styles.css) contains the css for the website.
 - [**Trunk.toml**](Trunk.toml) contains config for the trunk utility.
 
-## Rust Frontend 
-
-Build a simple Rust frontend web application using Yew. 
-
-Tutorial https://www.youtube.com/watch?v=MddGbXgIt2E&t=3s
-
-## Installations 
+## Installation
 
 Trunk is a crate that helps us build and package web applications.
 
@@ -57,3 +59,4 @@ Run `trunk serve` to run the application on your local machine.
 ```bash
 $ trunk serve
 ```
+Note: the `Trunk.toml` file contains the configuration for the trunk utility.
