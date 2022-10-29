@@ -66,5 +66,5 @@ Note: the `Trunk.toml` file contains the configuration for the trunk utility.
 Build the application using `trunk build` and specify the output directory as `docs`. This is where github pages expects the production build to be.
 
 ```bash
-$ trunk build --rdist docs
+$ trunk build --dist docs
 ```
