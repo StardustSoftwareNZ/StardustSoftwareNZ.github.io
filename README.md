@@ -60,3 +60,11 @@ Run `trunk serve` to run the application on your local machine.
 $ trunk serve
 ```
 Note: the `Trunk.toml` file contains the configuration for the trunk utility.
+
+## Build 
+
+Build the application using `trunk build` and specify the output directory as `docs`. This is where github pages expects the production build to be.
+
+```bash
+$ trunk build --rdist docs
+```
