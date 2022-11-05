@@ -76,3 +76,11 @@ Build the application using `trunk build` and specify the `--release` tag. This 
 ```bash
 $ trunk build --release
 ```
+
+## Github Pages - 404 Error
+
+This trick handles the 404 error for using Browser Routing when deploying to Github Pages.
+
+Create React App [docs](https://create-react-app.dev/docs/deployment/#github-pages):
+
+    > You can use a trick to teach GitHub Pages to handle 404s by redirecting to your index.html page with a custom redirect parameter. You would need to add a 404.html file with the redirection code to the build folder before deploying your project, and you’ll need to add code handling the redirect parameter to index.html. You can find a detailed explanation of this technique in this [guide](https://github.com/rafrex/spa-github-pages).
