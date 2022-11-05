@@ -1,5 +1,5 @@
-# in .github/workflows/continuous_integration.yml
-name: Continuous integration
+# in .github/workflows/ci.yml
+name: CI
 on: [push, pull_request]
 
 jobs:

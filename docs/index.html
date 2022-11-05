@@ -2,8 +2,35 @@
         <meta charset="utf-8">
         <title>Stardust 🇳🇿</title>
         <link rel="icon" type="image/png" href="/public/logo.png">
-        <link rel="stylesheet" href="/styles-bb6e6a1c7b4c0e55.css">
+        <link rel="stylesheet" href="/styles-383b66066a150aff.css">
     
-<link rel="preload" href="/website-e3b581baaf588a9a_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/website-e3b581baaf588a9a.js"></head>
-<body><script type="module">import init from '/website-e3b581baaf588a9a.js';init('/website-e3b581baaf588a9a_bg.wasm');</script></body></html>
+<link rel="preload" href="/website-92d7cc899d214a4d_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/website-92d7cc899d214a4d.js"></head>
+<body><script type="module">import init from '/website-92d7cc899d214a4d.js';init('/website-92d7cc899d214a4d_bg.wasm');</script><script>(function () {
+    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    var url = protocol + '//' + window.location.host + '/_trunk/ws';
+    var poll_interval = 5000;
+    var reload_upon_connect = () => {
+        window.setTimeout(
+            () => {
+                // when we successfully reconnect, we'll force a
+                // reload (since we presumably lost connection to
+                // trunk due to it being killed, so it will have
+                // rebuilt on restart)
+                var ws = new WebSocket(url);
+                ws.onopen = () => window.location.reload();
+                ws.onclose = reload_upon_connect;
+            },
+            poll_interval);
+    };
+
+    var ws = new WebSocket(url);
+    ws.onmessage = (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.reload) {
+            window.location.reload();
+        }
+    };
+    ws.onclose = reload_upon_connect;
+})()
+</script></body></html>
