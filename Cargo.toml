@@ -13,6 +13,10 @@ keywords = ["rust", "wasm", "SPA", "web-app"]
 
 [dependencies]
 # Yew provides a react-like web application framework (see https://yew.rs/)
-yew = "^0.19"
-# The default router for SPA made using yew (see https://yew.rs/docs/concepts/router)
+yew = { version = "0.19.3" }
+# The default router for SPA made using yew. (see https://yew.rs/docs/concepts/router)
 yew-router = "0.16"
+# A Rust library providing a lightweight logging facade. (See https://crates.io/crates/log)
+log = "0.4.6"
+# A logger that sends a message with its Rust source's line and filename to the browser console. (See https://crates.io/crates/wasm-logger)
+wasm-logger = "0.2.0"

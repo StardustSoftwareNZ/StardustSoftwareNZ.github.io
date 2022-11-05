@@ -2,7 +2,7 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 // Import route enum from main.
-use crate::Route;
+use crate::routes::{Route};
 
 #[function_component(Secure)]
 pub fn secure() -> Html {
