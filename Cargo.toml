@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 # Take any minor revision of 0.19 of the yew framework
 yew = "^0.19"
+# The default router for SPA made using yew; see https://yew.rs/docs/concepts/router
+yew-router = "0.16"
