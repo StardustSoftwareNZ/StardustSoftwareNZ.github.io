@@ -1,5 +1,6 @@
 # Target output build files. 
 /target
+/dist
 
 # Cargo lock file.
 Cargo.lock
