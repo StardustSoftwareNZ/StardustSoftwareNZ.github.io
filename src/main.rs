@@ -14,11 +14,9 @@ use crate::routes::{Route, switch};
 #[function_component(App)]
 fn app() -> Html {
     html! {
-        <div>
-            <BrowserRouter>
-                <Switch<Route> render={Switch::render(switch)} /> 
-            </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            <Switch<Route> render={Switch::render(switch)} /> 
+        </BrowserRouter>
     }
 }
 

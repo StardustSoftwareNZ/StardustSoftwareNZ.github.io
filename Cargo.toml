@@ -8,12 +8,13 @@ license = "MIT"
 homepage = "https://stardustsoftwarenz.github.io/"
 repository = "https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io"
 keywords = ["rust", "wasm", "SPA", "web-app"]
+categories = ["wasm"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 # Yew provides a react-like web application framework (see https://yew.rs/)
-yew = { version = "0.19.3" }
+yew = "^0.19"
 # The default router for SPA made using yew. (see https://yew.rs/docs/concepts/router)
 yew-router = "0.16"
 # A Rust library providing a lightweight logging facade. (See https://crates.io/crates/log)
