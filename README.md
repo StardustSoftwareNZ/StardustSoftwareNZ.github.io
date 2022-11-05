@@ -1,15 +1,16 @@
 # StardustSoftwareNZ.github.io
+
 Stardust Software NZ Website
 
-## Rust Frontend 
+## Rust Frontend
 
-Build a simple Rust frontend web application using Yew. 
+Build a simple Rust frontend web application using Yew.
 
 Tutorial https://www.youtube.com/watch?v=MddGbXgIt2E&t=3s
 
-## Organisation 
+## Organisation
 
-This repository contains these directories. 
+This repository contains these directories.
 
 ```
 .
@@ -36,20 +37,20 @@ This repository contains these directories.
 
 Trunk is a crate that helps us build and package web applications.
 
-```bash 
+```bash
 $ cargo install trunk
 ```
 
-Add web assembly as a compilation target to rust. 
+Add web assembly as a compilation target to rust.
 
-```bash 
+```bash
 $ rustup target add wasm32-unknown-unknown
 ```
 
-Create a package 
+Create a package
 
 ```bash
-$ cargo new my-app 
+$ cargo new my-app
 ```
 
 Change directory
@@ -58,19 +59,20 @@ Change directory
 $ cd my-app
 ```
 
-## Serve 
+## Serve
 
 Run `trunk serve` to run the application on your local machine.
 
 ```bash
 $ trunk serve
 ```
+
 Note: the `Trunk.toml` file contains the configuration for the trunk utility.
 
-## Build 
+## Build
 
-Build the application using `trunk build` and specify the output directory as `docs`. This is where github pages expects the production build to be.
+Build the application using `trunk build` and specify the `--release` tag. This generates the deployment ready files in the `docs` directory.
 
 ```bash
-$ trunk build --dist docs
+$ trunk build --release
 ```
