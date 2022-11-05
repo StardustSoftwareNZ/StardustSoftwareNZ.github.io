@@ -6,7 +6,7 @@ Stardust Software NZ Website
 
 Build a simple Rust frontend web application using Yew.
 
-Tutorial https://www.youtube.com/watch?v=MddGbXgIt2E&t=3s
+Tutorial https://www.youtube.com/watch?v=MddGbXgIt2E
 
 ## Organisation
 
