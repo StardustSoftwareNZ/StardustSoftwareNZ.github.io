@@ -1,7 +1,6 @@
 /// About - about.rs
 /// ===============
-/// This is the about page. It gives a brief description of what the company does. 
-
+/// This is the about page. It gives a brief description of what the company does.
 use yew::prelude::*;
 
 #[function_component(About)]

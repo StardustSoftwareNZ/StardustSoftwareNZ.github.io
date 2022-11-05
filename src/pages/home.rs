@@ -1,7 +1,6 @@
 /// Home - home.rs
 /// ==============
 /// This is the home page. It is the first page that the user sees when they visit the website.
-
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -12,7 +11,7 @@ use crate::routes::Route;
 pub fn home() -> Html {
     let history = use_history().unwrap();
 
-    let onclick = Callback::once(move |_| { history.push(Route::About) });
+    let onclick = Callback::once(move |_| history.push(Route::About));
 
     html! {
         <div>

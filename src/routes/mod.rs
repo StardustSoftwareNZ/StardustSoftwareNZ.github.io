@@ -9,7 +9,7 @@ pub enum Route {
     #[at("/")]
     Home,
     #[at("/about")]
-    About, 
+    About,
     #[at("/secure")]
     Secure,
     #[not_found]
@@ -19,10 +19,10 @@ pub enum Route {
 
 /// The switch component controls the routing of the application.
 pub fn switch(routes: &Route) -> Html {
-    match routes { 
+    match routes {
         Route::Home => html! { <pages::home::Home /> },
         Route::About => html! { <pages::about::About /> },
         Route::Secure => html! { <pages::secure::Secure />},
-        Route::NotFound => html! { <pages::error::Error />},      
+        Route::NotFound => html! { <pages::error::Error />},
     }
 }

@@ -1,28 +1,27 @@
-/// Main - main.rs 
+/// Main - main.rs
 /// ==============
 /// The entry point for the applicaiton, it runs the application and sets up the router.
-
-use yew_router::prelude::*;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
-mod routes;
 mod pages;
+mod routes;
 
-use crate::routes::{Route, switch};
+use crate::routes::{switch, Route};
 
 /// The App component is the root component of the application.
 #[function_component(App)]
 fn app() -> Html {
     html! {
         <BrowserRouter>
-            <Switch<Route> render={Switch::render(switch)} /> 
+            <Switch<Route> render={Switch::render(switch)} />
         </BrowserRouter>
     }
 }
 
-// The entry point of the web application. 
+// The entry point of the web application.
 fn main() {
-    // Initialize the logger when the application is started. 
+    // Initialize the logger when the application is started.
     wasm_logger::init(wasm_logger::Config::default());
     yew::start_app::<App>();
 }
