@@ -7,3 +7,11 @@ port = 8081
 open = false
 # Disable auto-reload of the web app.
 no_autoreload = false
+# The output directory for build assets. 
+dist = "docs"
+
+[build]
+# The output directory for build assets. 
+dist = "docs"
+# The public URL from which assets are to be served
+public_url = "/"
