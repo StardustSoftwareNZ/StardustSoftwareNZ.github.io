@@ -1,7 +1,7 @@
 # StardustSoftwareNZ.github.io
 
-[![Continuous integration](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/ci.yml)
-[![pages-build-deployment](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/pages/pages-build-deployment)
+[![CI](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/ci.yml)
+[![gh pages](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/StardustSoftwareNZ/StardustSoftwareNZ.github.io/actions/workflows/pages/pages-build-deployment)
 
 Stardust Software NZ Website
 
