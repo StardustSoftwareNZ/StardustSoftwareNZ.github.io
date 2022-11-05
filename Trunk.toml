@@ -11,6 +11,10 @@ no_autoreload = false
 dist = "docs"
 
 [build]
+# The index HTML file to drive the bundling process. 
+target = "index.html"
+# Build in release mode. 
+release = true
 # The output directory for build assets. 
 dist = "docs"
 # The public URL from which assets are to be served
