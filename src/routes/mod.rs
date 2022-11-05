@@ -1,3 +1,9 @@
+/// Routes - mod.rs 
+/// ===============
+/// We seperate the routing logic from the rest of the application. 
+/// This file is like __init__.py in Python. It is the entry point for the module.
+/// It makes the each route module available to the rest of the application.
+
 use yew::prelude::*;
 use yew_router::prelude::*;
 

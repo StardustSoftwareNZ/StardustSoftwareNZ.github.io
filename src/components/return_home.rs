@@ -1,9 +1,10 @@
-use crate::routes::Route;
 /// Return Home - return_home.rs
 /// ============================
 /// This component is a button used to return to the home page.
+
 use yew::prelude::*;
 use yew_router::prelude::*;
+use crate::routes::Route;
 
 #[function_component(ReturnHome)]
 pub fn return_home() -> Html {
