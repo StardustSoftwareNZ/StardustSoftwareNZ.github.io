@@ -1,9 +1,8 @@
+use crate::components::return_home::ReturnHome;
 /// Error - error.rs
 /// ===============
 /// This is the error page. It is displayed when the user tries to access a page that does not exist.
-
 use yew::prelude::*;
-use crate::components::return_home::ReturnHome;
 
 #[function_component(Error)]
 pub fn error() -> Html {

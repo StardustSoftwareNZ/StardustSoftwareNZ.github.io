@@ -1,10 +1,9 @@
+use crate::components::navigation::Navigation;
+use crate::components::return_home::ReturnHome;
 /// About - about.rs
 /// ===============
 /// This is the about page. It gives a brief description of what the company does.
-
 use yew::prelude::*;
-use crate::components::navigation::Navigation;
-use crate::components::return_home::ReturnHome;
 
 #[function_component(About)]
 pub fn about() -> Html {
