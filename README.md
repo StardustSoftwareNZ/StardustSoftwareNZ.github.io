@@ -77,7 +77,7 @@ Note: the `Trunk.toml` file contains the configuration for the trunk utility.
 Build the application using `trunk build` and specify the `--release` tag. This generates the deployment ready files in the `docs` directory.
 
 ```bash
-$ trunk build --release
+$ trunk build
 ```
 
 ## Github Pages - 404 Error
