@@ -150,12 +150,6 @@ pub fn fancy_navigation(props: &NavigationProps) -> Html {
                     </Link<Route>>
                 </div>
                 <div onclick={close_mobile_menu.clone()}>
-                    <Link<Route> to={Route::Secure} classes={classes!(format!("nav-mobile-link {}", is_active(Route::Secure)))}>
-                        <span class="nav-icon">{ "💻" }</span>
-                        <span class="nav-text">{ "Secure" }</span>
-                    </Link<Route>>
-                </div>
-                <div onclick={close_mobile_menu.clone()}>
                     <Link<Route> to={Route::Contact} classes={classes!(format!("nav-mobile-link {}", is_active(Route::Contact)))}>
                         <span class="nav-icon">{ "📧" }</span>
                         <span class="nav-text">{ "Contact" }</span>

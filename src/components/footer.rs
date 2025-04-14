@@ -1,4 +1,6 @@
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 #[derive(Properties, PartialEq)]
 pub struct FooterProps {
@@ -31,22 +33,20 @@ pub fn footer(props: &FooterProps) -> Html {
                     <div class="footer-links">
                         <h4>{"Quick Links"}</h4>
                         <ul>
-                            <li><a href="#">{"Home"}</a></li>
-                            <li><a href="#about">{"About"}</a></li>
-                            <li><a href="#services">{"Services"}</a></li>
-                            <li><a href="#projects">{"Projects"}</a></li>
-                            <li><a href="#contact">{"Contact"}</a></li>
+                            <li><Link<Route> to={Route::Home}>{"Home"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::About}>{"About"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::Projects}>{"Projects"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::Contact}>{"Contact"}</Link<Route>></li>
                         </ul>
                     </div>
                     <div class="footer-links">
                         <h4>{"Services"}</h4>
                         <ul>
-                            <li><a href="#">{"Artificial Intelligence"}</a></li>
-                            <li><a href="#">{"Web Development"}</a></li>
-                            <li><a href="#">{"Mobile Applications"}</a></li>
-                            <li><a href="#">{"Cloud Solutions"}</a></li>
-                            <li><a href="#">{"Custom Software"}</a></li>
-                            <li><a href="#">{"UI/UX Design"}</a></li>
+                            <li><Link<Route> to={Route::AiService}>{"Artificial Intelligence"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::WebDevService}>{"Web Development"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::MobileService}>{"Mobile Applications"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::CloudService}>{"Cloud Solutions"}</Link<Route>></li>
+                            <li><Link<Route> to={Route::CustomService}>{"Custom Software"}</Link<Route>></li>
                         </ul>
                     </div>
                     <div class="footer-newsletter">
@@ -61,8 +61,8 @@ pub fn footer(props: &FooterProps) -> Html {
                 <div class="footer-bottom">
                     <p class="copyright">{format!("© {} {} All Rights Reserved.", props.copyright_year, props.company_name)}</p>
                     <div class="footer-legal">
-                        <a href="#">{"Privacy Policy"}</a>
-                        <a href="#">{"Terms of Service"}</a>
+                        <Link<Route> to={Route::Home}>{"Privacy Policy"}</Link<Route>>
+                        <Link<Route> to={Route::Home}>{"Terms of Service"}</Link<Route>>
                     </div>
                 </div>
             </div>
