@@ -28,8 +28,11 @@ pub fn not_found() -> Html {
     let random_index = js_sys::Math::floor(js_sys::Math::random() * space_facts.len() as f64) as usize;
     let random_fact = space_facts[random_index];
     
-    // Go home button handler
-    let onclick = Callback::once(move |_| history.push(Route::Home));
+    let history_go_home = history.clone();
+    let go_home = Callback::once(move |_| history_go_home.push(Route::Home));
+    
+    let history_go_back = history.clone();
+    let go_back = Callback::once(move |_| history_go_back.back());
 
     html! {
         <div class="not-found-page">
@@ -71,8 +74,8 @@ pub fn not_found() -> Html {
                         </div>
                         
                         <div class="action-buttons">
-                            <button onclick={&onclick} class="btn btn-primary">{"Return to Home"}</button>
-                            <button onclick={onclick} class="btn btn-secondary">{"Go Back"}</button>
+                            <button onclick={go_home} class="btn btn-primary">{"Return to Home"}</button>
+                            <button onclick={go_back} class="btn btn-secondary">{"Go Back"}</button>
                         </div>
                     </div>
                 </div>
