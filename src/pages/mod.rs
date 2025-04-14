@@ -14,3 +14,9 @@ pub use error::Error;
 
 pub mod secure;
 pub use secure::Secure;
+
+pub mod projects;
+pub use projects::Projects;
+
+pub mod contact;
+pub use contact::Contact;

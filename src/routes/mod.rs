@@ -14,8 +14,12 @@ pub enum Route {
     Home,
     #[at("/about")]
     About,
+    #[at("/contact")]
+    Contact,
     #[at("/secure")]
     Secure,
+    #[at("/projects")]
+    Projects,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -27,7 +31,9 @@ pub fn switch(routes: &Route) -> Html {
     match routes {
         Route::Home => html! {<pages::home::Home />},
         Route::About => html! { <pages::about::About /> },
+        Route::Contact => html! { <pages::contact::Contact />},
         Route::Secure => html! { <pages::secure::Secure />},
+        Route::Projects => html! { <pages::projects::Projects />},
         Route::NotFound => html! { <pages::error::Error />},
     }
 }

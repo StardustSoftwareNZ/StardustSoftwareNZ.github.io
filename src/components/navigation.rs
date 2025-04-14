@@ -105,13 +105,13 @@ pub fn fancy_navigation(props: &NavigationProps) -> Html {
                         <span class="nav-icon">{ "🏠" }</span>
                         <span class="nav-text">{ "Home" }</span>
                     </Link<Route>>
+                    <Link<Route> to={Route::Projects} classes={classes!(is_active(Route::Projects))}>
+                        <span class="nav-icon">{ "🛠️" }</span>
+                        <span class="nav-text">{ "Projects" }</span>
+                    </Link<Route>>
                     <Link<Route> to={Route::About} classes={classes!(is_active(Route::About))}>
                         <span class="nav-icon">{ "ℹ️" }</span>
                         <span class="nav-text">{ "About" }</span>
-                    </Link<Route>>
-                    <Link<Route> to={Route::Secure} classes={classes!(is_active(Route::Secure))}>
-                        <span class="nav-icon">{ "💻" }</span>
-                        <span class="nav-text">{ "Secure" }</span>
                     </Link<Route>>
                     <button class="nav-contact-btn" onclick={Callback::from(move |_| {
                         let window: Window = web_sys::window().unwrap();
@@ -137,6 +137,12 @@ pub fn fancy_navigation(props: &NavigationProps) -> Html {
                     <Link<Route> to={Route::Home} classes={classes!(format!("nav-mobile-link {}", is_active(Route::Home)))}>
                         <span class="nav-icon">{ "🏠" }</span>
                         <span class="nav-text">{ "Home" }</span>
+                    </Link<Route>>
+                </div>
+                <div onclick={close_mobile_menu.clone()}>
+                    <Link<Route> to={Route::Projects} classes={classes!(format!("nav-mobile-link {}", is_active(Route::Projects)))}>
+                        <span class="nav-icon">{ "🛠️" }</span>
+                        <span class="nav-text">{ "Projects" }</span>
                     </Link<Route>>
                 </div>
                 <div onclick={close_mobile_menu.clone()}>

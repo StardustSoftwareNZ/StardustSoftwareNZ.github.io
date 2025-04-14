@@ -82,9 +82,9 @@ pub fn home() -> Html {
             // Contact Section
             <ContactSection 
                 id={"contact"}
-                address="123 Tech Avenue, Auckland, New Zealand"
-                email="hello@stardustsoftware.nz"
-                phone="+64 9 123 4567"
+                address="Island Bay, Wellington, New Zealand"
+                email="j.r.h.wood98@gmail.com"
+                phone="+64 21026 48190"
             />
             
             // Footer
