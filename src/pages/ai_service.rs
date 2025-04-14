@@ -92,9 +92,9 @@ pub fn ai_service() -> Html {
     // Define technology stack
     let technologies = vec![
         Technology {
-            name: "TensorFlow".to_string(),
-            description: "Open-source machine learning framework".to_string(),
-            image: "https://www.tensorflow.org/images/tf_logo_social.png".to_string(),
+            name: "Python".to_string(),
+            description: "Oeneral purpose programming language.".to_string(),
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1z0LC70CF3lPE1Xe-Uka4Y5sSlLzrAVHCQg&s".to_string(),
         },
         Technology {
             name: "PyTorch".to_string(),
@@ -110,16 +110,6 @@ pub fn ai_service() -> Html {
             name: "Hugging Face".to_string(),
             description: "State-of-the-art NLP models and tools".to_string(),
             image: "https://huggingface.co/front/assets/huggingface_logo.svg".to_string(),
-        },
-        Technology {
-            name: "MLflow".to_string(),
-            description: "Platform for managing the ML lifecycle".to_string(),
-            image: "https://www.mlflow.org/docs/latest/_static/MLflow-logo-final-black.png".to_string(),
-        },
-        Technology {
-            name: "OpenCV".to_string(),
-            description: "Computer vision and image processing library".to_string(),
-            image: "https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_black-2.png".to_string(),
         },
     ];
 
