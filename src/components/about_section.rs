@@ -45,12 +45,12 @@ pub fn about_section(props: &AboutSectionProps) -> Html {
         None => vec![
             Statistic {
                 id: "stat-1".to_string(),
-                number: "50+".to_string(),
+                number: "1+".to_string(),
                 label: "Projects Completed".to_string(),
             },
             Statistic {
                 id: "stat-2".to_string(),
-                number: "15+".to_string(),
+                number: "1+".to_string(),
                 label: "Team Members".to_string(),
             },
             Statistic {
