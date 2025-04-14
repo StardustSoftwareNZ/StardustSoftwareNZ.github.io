@@ -12,6 +12,8 @@ use yew_router::prelude::*;
 pub enum Route {
     #[at("/")]
     Home,
+    #[at("/services/ai-solutions")]
+    AiService,
     #[at("/about")]
     About,
     #[at("/contact")]
@@ -31,6 +33,7 @@ pub fn switch(routes: &Route) -> Html {
     match routes {
         Route::Home => html! {<pages::home::Home />},
         Route::About => html! { <pages::about::About /> },
+        Route::AiService => html! { <pages::ai_service::AiService /> },
         Route::Contact => html! { <pages::contact::Contact />},
         Route::Secure => html! { <pages::secure::Secure />},
         Route::Projects => html! { <pages::projects::Projects />},

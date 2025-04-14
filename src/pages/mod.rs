@@ -20,3 +20,6 @@ pub use projects::Projects;
 
 pub mod contact;
 pub use contact::Contact;
+
+pub mod ai_service;
+pub use ai_service::AiService;

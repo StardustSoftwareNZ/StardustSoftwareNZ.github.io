@@ -41,6 +41,7 @@ pub fn footer(props: &FooterProps) -> Html {
                     <div class="footer-links">
                         <h4>{"Services"}</h4>
                         <ul>
+                            <li><a href="#">{"Artificial Intelligence"}</a></li>
                             <li><a href="#">{"Web Development"}</a></li>
                             <li><a href="#">{"Mobile Applications"}</a></li>
                             <li><a href="#">{"Cloud Solutions"}</a></li>
