@@ -101,30 +101,6 @@ pub fn contact() -> Html {
         })
     };
 
-    // Handler for form submission
-    let handle_submit = {
-        let name = name.clone();
-        let email = email.clone();
-        let message = message.clone();
-        let form_submitted = form_submitted.clone();
-        let form_error = form_error.clone();
-
-        Callback::from(move |e: FocusEvent| {
-            e.prevent_default();
-            
-            // Basic validation
-            if name.is_empty() || email.is_empty() || message.is_empty() {
-                form_error.set(true);
-                return;
-            }
-            
-            // In a real application, you would send the form data to a server here
-            // For this example, we'll just simulate success
-            form_submitted.set(true);
-            form_error.set(false);
-        })
-    };
-
     html! {
         <div class="contact-page">
             // Navigation
@@ -204,96 +180,85 @@ pub fn contact() -> Html {
                                 subtitle={Some("We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.".to_string())}
                             />
                             
-                            if *form_submitted {
-                                <div class="form-success-message">
-                                    <svg viewBox="0 0 24 24" width="48" height="48">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#4facfe"/>
-                                    </svg>
-                                    <h3>{"Thank You!"}</h3>
-                                    <p>{"Your message has been sent successfully. We'll respond to your inquiry within 24 hours."}</p>
-                                    <button onclick={Callback::from(move |_| form_submitted.set(false))} class="btn btn-primary">{"Send Another Message"}</button>
-                                </div>
-                            } else {
-                                <form onsubmit={handle_submit} action="https://formspree.io/f/mpwpynqy" method="POST">
-                                    if *form_error {
-                                        <div class="form-error-message">
-                                            <p>{"Please fill out all required fields."}</p>
-                                        </div>
-                                    }
-                                    
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="name">{"Name"} <span class="required">{"*"}</span></label>
-                                            <input 
-                                                type="text" 
-                                                id="name" 
-                                                name="name" 
-                                                value={(*name).clone()}
-                                                onchange={handle_name_change}
-                                                class="form-control" 
-                                                required=true 
-                                            />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">{"Email"} <span class="required">{"*"}</span></label>
-                                            <input 
-                                                type="email" 
-                                                id="email" 
-                                                name="email" 
-                                                value={(*email).clone()}
-                                                onchange={handle_email_change}
-                                                class="form-control" 
-                                                required=true 
-                                            />
-                                        </div>
+                            <form action="https://formspree.io/f/mpwpynqy" method="POST">
+                                if *form_error {
+                                    <div class="form-error-message">
+                                        <p>{"Please fill out all required fields."}</p>
                                     </div>
-                                    
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="phone">{"Phone"}</label>
-                                            <input 
-                                                type="tel" 
-                                                id="phone" 
-                                                name="phone" 
-                                                value={(*phone).clone()}
-                                                onchange={handle_phone_change}
-                                                class="form-control" 
-                                            />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="subject">{"Subject"}</label>
-                                            <input 
-                                                type="text" 
-                                                id="subject" 
-                                                name="subject" 
-                                                value={(*subject).clone()}
-                                                onchange={handle_subject_change}
-                                                class="form-control" 
-                                            />
-                                        </div>
-                                    </div>
-                                    
+                                }
+                                
+                                <div class="form-row">
                                     <div class="form-group">
-                                        <label for="message">{"Message"} <span class="required">{"*"}</span></label>
-                                        <textarea 
-                                            id="message" 
-                                            name="message" 
-                                            value={(*message).clone()}
-                                            onchange={handle_message_change}
+                                        <label for="name">{"Name"} <span class="required">{"*"}</span></label>
+                                        <input 
+                                            type="text" 
+                                            id="name" 
+                                            name="name" 
+                                            value={(*name).clone()}
+                                            onchange={handle_name_change}
                                             class="form-control" 
-                                            rows="6" 
-                                            required=true
-                                        ></textarea>
+                                            required=true 
+                                        />
                                     </div>
-                                    
-                                    <div class="form-group form-checkbox">
-                                        <input type="checkbox" id="privacy" name="privacy" required=true />
-                                        <label for="privacy">{"I agree to the"} <a href="/privacy-policy">{"privacy policy"}</a></label>
+                                    <div class="form-group">
+                                        <label for="email">{"Email"} <span class="required">{"*"}</span></label>
+                                        <input 
+                                            type="email" 
+                                            id="email" 
+                                            name="email" 
+                                            value={(*email).clone()}
+                                            onchange={handle_email_change}
+                                            class="form-control" 
+                                            required=true 
+                                        />
                                     </div>
-                                    
-                                    <button type="submit" class="btn btn-primary">{"Send Message"}</button>
-                                </form>
-                            }
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone">{"Phone"}</label>
+                                        <input 
+                                            type="tel" 
+                                            id="phone" 
+                                            name="phone" 
+                                            value={(*phone).clone()}
+                                            onchange={handle_phone_change}
+                                            class="form-control" 
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subject">{"Subject"}</label>
+                                        <input 
+                                            type="text" 
+                                            id="subject" 
+                                            name="subject" 
+                                            value={(*subject).clone()}
+                                            onchange={handle_subject_change}
+                                            class="form-control" 
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">{"Message"} <span class="required">{"*"}</span></label>
+                                    <textarea 
+                                        id="message" 
+                                        name="message" 
+                                        value={(*message).clone()}
+                                        onchange={handle_message_change}
+                                        class="form-control" 
+                                        rows="6" 
+                                        required=true
+                                    ></textarea>
+                                </div>
+                                
+                                <div class="form-group form-checkbox">
+                                    <input type="checkbox" id="privacy" name="privacy" required=true />
+                                    <label for="privacy">{"I agree to the"} <a href="/privacy-policy">{"privacy policy"}</a></label>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">{"Send Message"}</button>
+                            </form>
                         </div>
                         <div class="contact-form-map">
                             <div class="map-container">

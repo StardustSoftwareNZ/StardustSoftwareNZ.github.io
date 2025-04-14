@@ -14,6 +14,14 @@ pub enum Route {
     Home,
     #[at("/services/ai-solutions")]
     AiService,
+    #[at("/services/web-development-solutions")]
+    WebDevService,
+    #[at("/services/cloud-solutions")]
+    CloudService,
+    #[at("/services/custom-solutions")]
+    CustomService,
+    #[at("/services/mobile-solutions")]
+    MobileService,
     #[at("/about")]
     About,
     #[at("/contact")]
@@ -34,6 +42,10 @@ pub fn switch(routes: &Route) -> Html {
         Route::Home => html! {<pages::home::Home />},
         Route::About => html! { <pages::about::About /> },
         Route::AiService => html! { <pages::ai_service::AiService /> },
+        Route::WebDevService => html! { <pages::web_dev_service::WebDevService /> },
+        Route::CloudService => html! { <pages::cloud_service::CloudService /> },
+        Route::CustomService => html! { <pages::custom_service::CustomService /> },
+        Route::MobileService => html! { <pages::mobile_service::MobileService /> },
         Route::Contact => html! { <pages::contact::Contact />},
         Route::Secure => html! { <pages::secure::Secure />},
         Route::Projects => html! { <pages::projects::Projects />},

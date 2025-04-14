@@ -1,11 +1,12 @@
 use crate::routes::Route;
+use crate::api::services::Service;
+use yew::prelude::*;
+use yew_router::prelude::*;
+
 /// Service Card - service_card.rs
 /// ==================
 /// This component displays an individual service offering.
-use yew::prelude::*;
-use yew_router::prelude::*;
-use crate::api::services::Service;
-    
+
 #[derive(Properties, PartialEq)]
 pub struct ServiceCardProps {
     pub service: Service,
@@ -18,9 +19,10 @@ pub fn service_card(props: &ServiceCardProps) -> Html {
 
     // The history hook pushes routes to the browser history.
     let history = use_history().unwrap();
+    let service_route = service.route.clone();
 
-    // This handler navigates to the home page when the button is clicked.
-    let onclick = Callback::once(move |_| history.push(Route::AiService));
+    // This handler navigates to the specific service route when the button is clicked.
+    let onclick = Callback::once(move |_| history.push(service_route));
     
     html! {
         <div class="service-card">
