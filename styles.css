@@ -601,7 +601,7 @@ section {
 .services-section {
     background-color: #f9fafb;
 }
-
+ 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -661,6 +661,39 @@ section {
 .service-link:hover::after {
     width: 100%;
 }
+
+@media (max-width: 768px) {
+  .services-grid {
+      display: flex; /* Use flexbox on mobile */
+      flex-direction: column; /* Stack vertically */
+  }
+
+  .service-card {
+      padding: 1.5rem; /* Adjust padding for mobile */
+      text-align: left; /* Align text left */
+      width: 100%; /* Ensure full width on mobile */
+  }
+
+  .service-icon {
+      justify-content: left; /* Align icon left */
+      margin-bottom: 1rem; /* Adjust margin */
+  }
+
+  .service-title {
+      font-size: 1.2rem; /* Adjust font size */
+      margin-bottom: 0.5rem; /* Adjust margin */
+  }
+
+  .service-description {
+      font-size: 1rem; /* Adjust font size */
+      margin-bottom: 1rem; /* Adjust margin */
+  }
+
+  .service-link {
+      font-size: 1rem; /* Adjust font size */
+  }
+}
+
 
 /* ====================================
    PROCESS SECTION 

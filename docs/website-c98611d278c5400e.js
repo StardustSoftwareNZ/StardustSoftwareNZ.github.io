@@ -577,11 +577,11 @@ function __wbg_get_imports() {
         const ret = false;
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper1637 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper1640 = function(arg0, arg1, arg2) {
         const ret = makeClosure(arg0, arg1, 896, __wbg_adapter_22);
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper1752 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper1755 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 919, __wbg_adapter_25);
         return ret;
     };
