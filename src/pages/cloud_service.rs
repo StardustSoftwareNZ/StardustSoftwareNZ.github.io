@@ -1,7 +1,9 @@
 use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 /// Cloud Solutions Service - cloud_solutions_service.rs
 /// ===================
@@ -338,8 +340,8 @@ pub fn cloud_solutions_service() -> Html {
                         <h2>{"Ready to Transform Your Infrastructure with Cloud?"}</h2>
                         <p>{"Let's discuss how our cloud solutions can help you improve scalability, reduce costs, and drive innovation."}</p>
                         <div class="cta-buttons">
-                            <a href="/contact" class="btn btn-primary">{"Schedule a Cloud Consultation"}</a>
-                            <a href="/cloud-assessment" class="btn btn-secondary">{"Get a Free Cloud Readiness Assessment"}</a>
+                            <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Schedule a Cloud Consultation"}</Link<Route>>
+                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Get a Free Cloud Readiness Assessment"}</Link<Route>>
                         </div>
                     </div>
                 </div>

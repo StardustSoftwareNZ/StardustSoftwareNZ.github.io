@@ -1,9 +1,12 @@
 use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
+use crate::components::process_section::ProcessSection;
 use crate::api::projects::get_projects;
 use crate::components::project_card::ProjectCard;
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 #[derive(Clone, Debug, PartialEq)]
 enum ProjectCategory {
@@ -154,48 +157,8 @@ pub fn projects() -> Html {
             </section>
             
             // Project Process Section
-            <section class="project-process-section">
-                <div class="container">
-                    <SectionHeader 
-                        title="Our Project Approach" 
-                        subtitle={Some("How we deliver successful projects".to_string())}
-                    />
-                    
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="process-step-number">{"01"}</div>
-                            <div class="process-step-content">
-                                <h3>{"Discovery"}</h3>
-                                <p>{"We begin by understanding your business objectives, user needs, and technical requirements through in-depth consultations."}</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step">
-                            <div class="process-step-number">{"02"}</div>
-                            <div class="process-step-content">
-                                <h3>{"Design"}</h3>
-                                <p>{"Our designers create intuitive interfaces and user experiences that are both visually appealing and highly functional."}</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step">
-                            <div class="process-step-number">{"03"}</div>
-                            <div class="process-step-content">
-                                <h3>{"Development"}</h3>
-                                <p>{"We build your solution using agile methodologies, with regular client check-ins and iterative improvements."}</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step">
-                            <div class="process-step-number">{"04"}</div>
-                            <div class="process-step-content">
-                                <h3>{"Delivery"}</h3>
-                                <p>{"We launch your project with comprehensive testing, documentation, and training to ensure a smooth transition."}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            // Process Section
+            <ProcessSection id={"process"} />
             
             // Call to Action
             <section class="cta-section">
@@ -204,8 +167,8 @@ pub fn projects() -> Html {
                         <h2>{"Ready to Build Something Amazing?"}</h2>
                         <p>{"Let's discuss how we can bring your project ideas to life."}</p>
                         <div class="cta-buttons">
-                            <a href="/contact" class="btn btn-primary">{"Start a Project"}</a>
-                            <a href="/services" class="btn btn-secondary">{"Explore Our Services"}</a>
+                            <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Start a Project"}</Link<Route>>
+                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Explore Our Services"}</Link<Route>>
                         </div>
                     </div>
                 </div>

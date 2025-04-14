@@ -1,7 +1,9 @@
 use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 /// Mobile Applications Service - mobile_applications_service.rs
 /// ===================
@@ -320,8 +322,8 @@ pub fn mobile_applications_service() -> Html {
                     <h2>{"Ready to Build Your Mobile Application?"}</h2>
                     <p>{"Let's discuss how our mobile development expertise can help you engage users and achieve your business objectives."}</p>
                     <div class="cta-buttons">
-                        <a href="/contact" class="btn btn-primary">{"Schedule a Mobile Strategy Session"}</a>
-                        <a href="/mobile-portfolio" class="btn btn-secondary">{"View Our Mobile App Portfolio"}</a>
+                        <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Schedule a Mobile Strategy Session"}</Link<Route>>
+                        <Link<Route> to={Route::Projects} classes="btn btn-secondary">{"View Our Mobile App Portfolio"}</Link<Route>>
                     </div>
                 </div>
             </div>

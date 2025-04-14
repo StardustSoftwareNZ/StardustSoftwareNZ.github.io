@@ -1,7 +1,9 @@
 use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 /// Web Development Service - web_development_service.rs
 /// ===================
@@ -358,8 +360,8 @@ pub fn web_development_service() -> Html {
                         <h2>{"Ready to Elevate Your Web Presence?"}</h2>
                         <p>{"Let's discuss how our web development expertise can help you create engaging digital experiences and achieve your business goals."}</p>
                         <div class="cta-buttons">
-                            <a href="/contact" class="btn btn-primary">{"Request a Free Consultation"}</a>
-                            <a href="/web-portfolio" class="btn btn-secondary">{"View Our Web Portfolio"}</a>
+                            <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Request a Free Consultation"}</Link<Route>>
+                            <Link<Route> to={Route::Projects} classes="btn btn-secondary">{"View Our Web Portfolio"}</Link<Route>>
                         </div>
                     </div>
                 </div>

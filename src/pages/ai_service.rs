@@ -1,7 +1,9 @@
 use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 /// AI Service - ai_service.rs
 /// ===================
@@ -338,8 +340,8 @@ pub fn ai_service() -> Html {
                         <h2>{"Ready to Transform Your Business with AI?"}</h2>
                         <p>{"Let's discuss how our AI solutions can help you solve complex problems and create competitive advantages."}</p>
                         <div class="cta-buttons">
-                            <a href="/contact" class="btn btn-primary">{"Schedule a Consultation"}</a>
-                            <a href="/ai-assessment" class="btn btn-secondary">{"Take Our AI Readiness Assessment"}</a>
+                            <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Schedule a Consultation"}</Link<Route>>
+                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Take Our AI Readiness Assessment"}</Link<Route>>
                         </div>
                     </div>
                 </div>
