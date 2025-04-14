@@ -1,9 +1,22 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+    <head>
         <meta charset="utf-8">
         <title>Stardust 🇳🇿</title>
         <link rel="icon" type="image/png" href="/public/logo.png">
-        <link rel="stylesheet" href="/styles-383b66066a150aff.css">
-    
-<link rel="preload" href="/website-8e4b5564a2d005f_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/website-8e4b5564a2d005f.js"></head>
-<body><script type="module">import init from '/website-8e4b5564a2d005f.js';init('/website-8e4b5564a2d005f_bg.wasm');</script></body></html>
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+        <link rel="stylesheet" href="/styles-a49e60f1a52f2316.css" integrity="sha384-+PCMMb9ZgJhuxcsWfmTUZmCInWADRM3s/FkArVxXBP7fn5Ydw0IFvWOsYmpiTTb/"/>
+        
+<script type="module">
+import init, * as bindings from '/website-4d97cf5549d31353.js';
+const wasm = await init({ module_or_path: '/website-4d97cf5549d31353_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="modulepreload" href="/website-4d97cf5549d31353.js" crossorigin="anonymous" integrity="sha384-JWLiMw4gE6CS5p8EAM2E555QjO0B17s7MT/5Y6GoVX6ZD5dv+DYaJgB8alnqXDgG"><link rel="preload" href="/website-4d97cf5549d31353_bg.wasm" crossorigin="anonymous" integrity="sha384-qJM1R64OCQOzl10CwoIqtYuWbScd5iXTXeuiT8H58SSDA+WwvJA1m0wLkwMk3Lmw" as="fetch" type="application/wasm"></head>
+</html>

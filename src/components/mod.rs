@@ -7,4 +7,15 @@ pub mod return_home;
 pub use return_home::ReturnHome;
 
 pub mod navigation;
-pub use navigation::Navigation;
+pub mod section_header;
+pub mod hero;
+pub mod service_card;
+pub mod project_card;
+pub mod testimonial_card;
+pub mod services_section;
+pub mod projects_section;
+pub mod testimonials_section;
+pub mod contact_section;
+pub mod process_section;
+pub mod about_section;
+pub mod footer;
