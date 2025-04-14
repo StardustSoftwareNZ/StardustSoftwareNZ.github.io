@@ -38,20 +38,20 @@ pub fn ai_service() -> Html {
     // Define case studies
     let case_studies = vec![
         CaseStudy {
-            title: "Predictive Maintenance for Manufacturing".to_string(),
-            industry: "Manufacturing".to_string(),
-            challenge: "A large manufacturing company struggled with unexpected equipment failures causing costly downtime and production delays.".to_string(),
-            solution: "We developed an AI-driven predictive maintenance system that analyzes sensor data to forecast potential equipment failures before they occur.".to_string(),
-            result: "Reduced unplanned downtime by 78%, maintenance costs by 35%, and extended equipment lifespan by an average of 3 years.".to_string(),
-            image_url: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string(),
+            title: "Automated Fish Classification Using Unprocessed Fatty Acid Chromatographic Data: A Machine Learning Approach".to_string(),
+            industry: "Fish Processing, Chemistry, Artificial Intelligence".to_string(),
+            challenge: "Only about 40% of a fish is edible fillet, with the remaining 60% being suitable for either low-value fertilizer or high-value omega-3 concentrate production. However, the viability of high-value processing depends on the biochemical composition of the biomass, which varies with species, tissue type, and season. Determining biomass quality requires fatty acid profiling through Gas Chromatography—a precise but time-consuming process that relies heavily on expert interpretation.".to_string(),
+            solution: "This paper explores the use of classification and feature selection algorithms to automate the interpretation of Gas Chromatography data. It investigates whether models such as Support Vector Machines (SVMs) can accurately classify marine biomass based on its fatty acid composition and identifies key features that contribute to classification performance.".to_string(),
+            result: "The experiments showed that SVMs can effectively classify compositionally diverse marine biomass using raw chromatographic data. Visualizations from the SVMs aid interpretability by highlighting important features. Moreover, incorporating feature selection significantly reduced dimensionality, improved accuracy, and accelerated processing—boosting classification speed by up to 4× on high-dimensional, low-sample-size datasets.".to_string(),
+            image_url: "https://s3.animalia.bio/animals/photos/full/original/2560pxannual-report-of-the-commissioners-of-fisheries-game-and-forests-of-the-state-of-new-york-18961900-18740990974.webp".to_string(),
         },
         CaseStudy {
-            title: "Customer Service Chatbot for e-Commerce".to_string(),
-            industry: "Retail".to_string(),
-            challenge: "An e-commerce company was experiencing high customer service costs and struggling to provide 24/7 support.".to_string(),
-            solution: "We built a natural language processing (NLP) chatbot that handles common customer inquiries, product recommendations, and troubleshooting.".to_string(),
-            result: "90% of customer queries now resolved without human intervention, 65% reduction in customer service costs, and 24/7 customer support availability.".to_string(),
-            image_url: "https://images.unsplash.com/photo-1568952433726-3896e3881c65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string(),
+            title: "Hook, Line and Spectra: Machine Learning for Fish Species and Part Classification using Rapid Evaporative Ionization Mass Spectrometry".to_string(),
+            industry: "Fish Processing, Chemistry, Artificial Intelligence".to_string(),
+            challenge: "Marine biomass composition analysis is traditionally labor-intensive and reliant on domain-specific expertise. Standard methods are time-consuming and not scalable for real-time or high-throughput applications in industry. There is a growing need for rapid, accurate, and interpretable techniques for assessing biomass quality across varied species and tissues.".to_string(),
+            solution: "This study explores the use of Rapid Evaporative Ionization Mass Spectrometry (REIMS) combined with advanced machine learning—particularly deep learning and unsupervised pre-training of transformer models—for automated biomass composition analysis. Diverse biochemical profiles, modeled through fish species and body parts, served as test cases. Additionally, the study applies explainability methods such as LIME and Grad-CAM to interpret decision-making in high-performing classifiers.".to_string(),
+            result: "Deep learning methods consistently outperformed traditional machine learning across all tasks. The pretrained transformer achieved 99.62% accuracy in fish species classification and 84.06% accuracy for fish body part classification. Explainability techniques successfully identified critical features driving model predictions, making REIMS combined with machine learning a powerful and interpretable approach for marine biomass analysis. This method holds significant promise for industrial quality control, product optimization, and food safety monitoring.".to_string(),
+            image_url: "https://s3.animalia.bio/animals/photos/full/original/fmib-41562-common-mackerel-scomber-scombrusjpeg.webp".to_string(),
         },
     ];
 
@@ -105,6 +105,16 @@ pub fn ai_service() -> Html {
             name: "scikit-learn".to_string(),
             description: "Machine learning library for classical algorithms".to_string(),
             image: "https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png".to_string(),
+        },
+        Technology {
+            name: "Pandas".to_string(),
+            description: "Data manipulation and analysis".to_string(),
+            image: "https://cdn.worldvectorlogo.com/logos/pandas.svg".to_string(),
+        },
+        Technology {
+            name: "Numpy".to_string(),
+            description: "Multi-dimensional arrays and matrices".to_string(),
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRC2C9EVtvZjW_wQ3f9bEP2Fgla230C3kVYQ&s".to_string(),
         },
         Technology {
             name: "Hugging Face".to_string(),

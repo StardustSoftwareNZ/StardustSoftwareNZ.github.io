@@ -1,3 +1,4 @@
+use crate::routes::Route;
 use crate::components::navigation::Navigation;
 use crate::components::hero::Hero;
 use crate::components::about_section::AboutSection;
@@ -8,6 +9,7 @@ use crate::components::testimonials_section::TestimonialsSection;
 use crate::components::contact_section::ContactSection;
 use crate::components::footer::Footer;
 use yew::prelude::*;
+use yew_router::prelude::*;
 use web_sys::MouseEvent;
 
 /// Home - home.rs
@@ -28,6 +30,12 @@ pub fn home() -> Html {
         })
     };
 
+    // Go to 404 page 
+    let go_to_404 = {
+        let history = use_history().unwrap();
+        Callback::once(move |_| history.push(Route::NotFound))
+    };
+
     html! {
         <div class="homepage">
             // Navigation
@@ -43,7 +51,7 @@ pub fn home() -> Html {
                 primary_button_text={Some("Our Services".to_string())}
                 primary_button_onclick={Some(scroll_to_section("services"))}
                 secondary_button_text={Some("Watch Demo".to_string())}
-                secondary_button_onclick={None}
+                secondary_button_onclick={go_to_404}
                 scroll_down_id={Some("about".to_string())}
                 scroll_down_text={Some("Discover More".to_string())}
                 background_image={Some("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string())}
