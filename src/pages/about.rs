@@ -99,9 +99,9 @@ pub fn about() -> Html {
                             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Stardust Software team" />
                         </div>
                         <div class="story-text">
-                            <p>{"Stardust Software was founded in 2015 with a simple yet ambitious vision: to create software that makes a difference. We began as a small team of passionate developers and designers in Auckland, united by our belief that technology should be both powerful and accessible."}</p>
-                            <p>{"Over the years, we've grown into a full-service software development company, working with clients across New Zealand and around the world. Our journey has been defined by challenging projects, innovative solutions, and most importantly, the relationships we've built with our clients."}</p>
-                            <p>{"Today, Stardust Software stands at the forefront of digital transformation, helping businesses modernize their operations, engage with customers in meaningful ways, and leverage technology to achieve their goals. While we've expanded our capabilities and team, our core mission remains unchanged: to deliver stellar software solutions that elevate businesses to new heights."}</p>
+                            <p>{"Stardust Software is a boutique software contracting company based in Wellington, New Zealand, specializing in cutting-edge AI solutions and research-driven development. Founded and operated by Jesse Wood, the company delivers bespoke machine learning systems with a focus on clarity, performance, and innovation."}</p>
+                            <p>{"Jesse, the sole engineer behind Stardust Software, holds a degree in Software Engineering from Victoria University of Wellington and is currently pursuing a PhD in Artificial Intelligence. His work bridges the gap between academic research and real-world application, with a passion for making intelligent systems interpretable and impactful."}</p>
+                            <p>{"At Stardust Software, every project is treated as an opportunity to explore new frontiers in software and AI. From clean, maintainable codebases to state-of-the-art models, the company is committed to building tools that are not only functional, but futuristic"}</p>
                         </div>
                     </div>
                 </div>

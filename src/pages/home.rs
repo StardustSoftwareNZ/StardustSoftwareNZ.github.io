@@ -54,8 +54,8 @@ pub fn home() -> Html {
                 id={"about"} 
                 title="About Stardust Software NZ"
                 paragraphs={Some(vec![
-                    "At Stardust Software NZ, we blend creativity with technical expertise to deliver cutting-edge software solutions. Based in New Zealand, we work with clients globally to transform their digital presence.".to_string(),
-                    "Our team of passionate developers, designers, and strategists are committed to crafting software that not only meets your business requirements but exceeds your expectations.".to_string(),
+                    "At Stardust Software NZ, we blend creativity with technical expertise to deliver cutting-edge software and artificial intelligence solutions. Based in New Zealand, we work with clients globally to transform their digital presence.".to_string(),
+                    "Our one man team is committed to crafting software and artificial intelligence that not only meets your business requirements but exceeds your expectations. Bringing ingenuity, creativity, engineering and data science together.".to_string(),
                 ])}
                 // Optional: Add custom statistics or an image_url
             />

@@ -34,8 +34,8 @@ pub fn about_section(props: &AboutSectionProps) -> Html {
     let paragraphs = match &props.paragraphs {
         Some(paragraphs) => paragraphs.clone(),
         None => vec![
-            "At Stardust Software NZ, we blend creativity with technical expertise to deliver cutting-edge software solutions. Based in New Zealand, we work with clients globally to transform their digital presence.".to_string(),
-            "Our team of passionate developers, designers, and strategists are committed to crafting software that not only meets your business requirements but exceeds your expectations.".to_string(),
+            "At Stardust Software NZ, we blend creativity with technical expertise to deliver cutting-edge software and artificial intelligence solutions. Based in New Zealand, we work with clients globally to transform their digital presence.".to_string(),
+            "Our one man team is committed to crafting software that not only meets your business requirements but exceeds your expectations.".to_string(),
         ],
     };
     
