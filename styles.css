@@ -527,6 +527,7 @@ section {
 .stat-label {
     font-size: 1rem;
     color: #718096;
+    text-decoration-color: #0056b3;
 }
 
 .about-image {

@@ -113,12 +113,10 @@ pub fn fancy_navigation(props: &NavigationProps) -> Html {
                         <span class="nav-icon">{ "ℹ️" }</span>
                         <span class="nav-text">{ "About" }</span>
                     </Link<Route>>
-                    <button class="nav-contact-btn" onclick={Callback::from(move |_| {
-                        let window: Window = web_sys::window().unwrap();
-                        let _ = window.open_with_url_and_target("/contact", "_self");
-                    })}>
-                        { "Contact Us" }
-                    </button>
+                    <Link<Route> to={Route::Contact} classes={classes!(is_active(Route::Contact))}>
+                    <span class="nav-icon">{ "📧" }</span>
+                    <span class="nav-text">{ "Contact" }</span>
+                </Link<Route>>
                 </div>
 
                 // Mobile Menu Button
@@ -157,12 +155,12 @@ pub fn fancy_navigation(props: &NavigationProps) -> Html {
                         <span class="nav-text">{ "Secure" }</span>
                     </Link<Route>>
                 </div>
-                <button class="nav-mobile-contact-btn" onclick={Callback::from(move |_| {
-                    let window: Window = web_sys::window().unwrap();
-                    let _ = window.open_with_url_and_target("/contact", "_self");
-                })}>
-                    { "Contact Us" }
-                </button>
+                <div onclick={close_mobile_menu.clone()}>
+                    <Link<Route> to={Route::Contact} classes={classes!(format!("nav-mobile-link {}", is_active(Route::Contact)))}>
+                        <span class="nav-icon">{ "📧" }</span>
+                        <span class="nav-text">{ "Contact" }</span>
+                    </Link<Route>>
+                </div>
             </div>
             
             <style>
