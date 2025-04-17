@@ -357,62 +357,48 @@ body.menu-open {
 }
 
 @media (max-width: 768px) {
-    .nav-container {
-        padding: 0.75rem 1.2rem;
-    }
-    
-    .nav-company-name {
-        font-size: 1.4rem;
-    }
-    
-    .nav-links-desktop {
-        display: none;
-    }
-    
-    .nav-mobile-toggle {
-        display: block;
-    }
-    
-    .nav-mobile-menu {
-        display: flex;
-    }
-    
-    .nav-mobile-menu-open {
-        top: calc(var(--nav-height, 72px));
-        height: calc(100vh - var(--nav-height, 72px));
-    }
-    
-    .nav-scrolled + .nav-mobile-menu-open {
-        top: calc(var(--nav-height-scrolled, 60px));
-        height: calc(100vh - var(--nav-height-scrolled, 60px));
-    }
-}
+  .nav-links-desktop {
+      gap: 0.8rem;
+  }
 
-@media (max-width: 480px) {
-    .nav-container {
-        padding: 0.75rem 1rem;
-    }
-    
-    .nav-brand {
-        gap: 0.5rem;
-    }
-    
-    .nav-logo {
-        height: 2.5rem;
-    }
-    
-    .nav-company-name {
-        font-size: 1.2rem;
-    }
-    
-    .nav-mobile-toggle {
-        font-size: 1.5rem;
-    }
-    
-    .nav-mobile-link {
-        font-size: 1.1rem;
-        padding: 0.9rem;
-    }
+  .nav-brand {
+    display: none;
+  }
+
+  .nav-text {
+      display: none;
+  }
+
+  .nav-link, .nav-link-active {
+      padding: 0.5rem;
+  }
+
+  .nav-icon {
+      margin: 0;
+      font-size: 1.3rem;
+  }
+
+  .nav-mobile-toggle {
+      display: block;
+  }
+
+  .nav-mobile-menu {
+      display: flex;
+  }
+
+  .nav-mobile-menu-open {
+      transform: translateY(0);
+  }
+
+  .nav-mobile-link {
+      font-size: 1.2rem;
+      padding: 1rem;
+  }
+
+  .nav-mobile-contact-btn {
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+  }
 }
 
 /* Set CSS variables for nav heights to use in mobile menu calculations */
@@ -2800,7 +2786,7 @@ textarea.form-control {
   mix-blend-mode: overlay;
 }
 
-..contact-hero-backdrop::after {
+.contact-hero-backdrop::after {
   content: '';
   position: absolute;
   top: 0;
