@@ -289,7 +289,7 @@ pub fn ai_service() -> Html {
                                 html! {
                                     <div class="tech-card">
                                         <div class="tech-image">
-                                            <img src={tech.image} alt={format!("{} logo", tech.name)} />
+                                            <img src={tech.image} alt={format!("{} logo", tech.name)} loading="lazy" />
                                         </div>
                                         <h3 class="tech-name">{tech.name}</h3>
                                         <p class="tech-description">{tech.description}</p>
@@ -299,8 +299,8 @@ pub fn ai_service() -> Html {
                         }
                     </div>
                 </div>
-            </section>
-            
+            </section>          
+              
             // FAQs Section
             <section class="faq-section">
                 <div class="container">
