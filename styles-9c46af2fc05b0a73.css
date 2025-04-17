@@ -62,10 +62,11 @@ section {
     max-width: 700px;
     margin: 0 auto;
 }
+
 /* ====================================
-   NAVIGATION - IMPROVED MOBILE RESPONSIVENESS
+   NAVIGATION 
    ==================================== */
-   .nav-container {
+.nav-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -209,8 +210,6 @@ section {
     box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    text-decoration: none;
-    display: inline-block;
 }
 
 .nav-contact-btn:hover {
@@ -232,8 +231,6 @@ section {
     color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
     transition: transform 0.3s;
-    padding: 0.5rem;
-    line-height: 1;
 }
 
 .nav-mobile-toggle:hover {
@@ -247,18 +244,18 @@ section {
     top: 72px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 72px);
     background: linear-gradient(135deg, rgba(18, 41, 76, 0.98), rgba(14, 32, 59, 0.98));
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     z-index: 999;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     flex-direction: column;
-    gap: 1.2rem;
-    overflow-y: auto;
+    gap: 1rem;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-mobile-menu-open {
@@ -273,12 +270,12 @@ section {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    padding: 1rem;
+    padding: 0.9rem 1rem;
     border-radius: 8px;
     transition: all 0.25s ease;
 }
 
-.nav-mobile-link:hover, .nav-mobile-link:active {
+.nav-mobile-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 1);
 }
@@ -298,113 +295,10 @@ section {
     box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    text-decoration: none;
-    display: block;
 }
 
-.nav-mobile-contact-btn:hover, .nav-mobile-contact-btn:active {
+.nav-mobile-contact-btn:hover {
     background: linear-gradient(135deg, #3d9eee, #00e3ef);
-    transform: translateY(-3px);
-}
-
-/* Prevent body scrolling when mobile menu is open */
-body.menu-open {
-    overflow: hidden;
-}
-
-/* Improved media queries for better mobile experience */
-@media (max-width: 1024px) {
-    .nav-container {
-        padding: 0.8rem 1.5rem;
-    }
-    
-    .nav-scrolled {
-        padding: 0.6rem 1.5rem;
-    }
-    
-    .nav-links-desktop {
-        gap: 1.2rem;
-    }
-    
-    .nav-link, .nav-link-active {
-        font-size: 1rem;
-        padding: 0.5rem 0.8rem;
-    }
-    
-    .nav-contact-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 900px) {
-    .nav-links-desktop {
-        gap: 0.8rem;
-    }
-    
-    .nav-text {
-        display: none;
-    }
-    
-    .nav-link, .nav-link-active {
-        padding: 0.5rem;
-    }
-    
-    .nav-icon {
-        margin: 0;
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 768px) {
-  .nav-links-desktop {
-      gap: 0.8rem;
-  }
-
-  .nav-brand {
-    display: none;
-  }
-
-  .nav-text {
-      display: none;
-  }
-
-  .nav-link, .nav-link-active {
-      padding: 0.5rem;
-  }
-
-  .nav-icon {
-      margin: 0;
-      font-size: 1.3rem;
-  }
-
-  .nav-mobile-toggle {
-      display: block;
-  }
-
-  .nav-mobile-menu {
-      display: flex;
-  }
-
-  .nav-mobile-menu-open {
-      transform: translateY(0);
-  }
-
-  .nav-mobile-link {
-      font-size: 1.2rem;
-      padding: 1rem;
-  }
-
-  .nav-mobile-contact-btn {
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-  }
-}
-
-/* Set CSS variables for nav heights to use in mobile menu calculations */
-:root {
-    --nav-height: 72px;
-    --nav-height-scrolled: 60px;
 }
 
 /* ====================================
@@ -2786,7 +2680,7 @@ textarea.form-control {
   mix-blend-mode: overlay;
 }
 
-.contact-hero-backdrop::after {
+..contact-hero-backdrop::after {
   content: '';
   position: absolute;
   top: 0;
@@ -3558,8 +3452,7 @@ textarea.form-control {
   color: #718096;
   line-height: 1.6;
 }
-
-/* Technology Stack Section */
+/* Technology Stack Section - Improved Mobile Responsiveness */
 .tech-stack-section {
   padding: 6rem 0;
   background-color: white;
@@ -3579,6 +3472,10 @@ textarea.form-control {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .tech-card:hover {
@@ -3610,6 +3507,78 @@ textarea.form-control {
 .tech-description {
   font-size: 0.9rem;
   color: #718096;
+}
+
+/* Improved Media Queries for Tech Stack Section */
+@media (max-width: 1024px) {
+  .tech-stack-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .tech-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-stack-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .tech-card {
+    padding: 1.5rem;
+  }
+  
+  .tech-image {
+    height: 60px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .tech-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .tech-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .tech-card {
+    padding: 1.25rem 1rem;
+  }
+  
+  .tech-image {
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .tech-name {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .tech-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 375px) {
+  .tech-stack-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+  
+  .tech-card {
+    padding: 1.5rem;
+  }
+  
+  .tech-image {
+    height: 60px; /* Slightly larger images when in single column */
+  }
 }
 
 /* FAQ Section */
