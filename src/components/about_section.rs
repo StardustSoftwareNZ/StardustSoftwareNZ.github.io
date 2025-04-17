@@ -45,7 +45,7 @@ pub fn about_section(props: &AboutSectionProps) -> Html {
         None => vec![
             Statistic {
                 id: "stat-1".to_string(),
-                number: "1+".to_string(),
+                number: "5+".to_string(),
                 label: "Projects Completed".to_string(),
             },
             Statistic {

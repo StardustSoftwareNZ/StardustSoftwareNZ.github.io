@@ -167,7 +167,7 @@ pub fn about() -> Html {
                 <div class="container">
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-number">{"1+"}</div>
+                            <div class="stat-number">{"5+"}</div>
                             <div class="stat-label">{"Projects Completed"}</div>
                         </div>
                         <div class="stat-item">
@@ -179,7 +179,7 @@ pub fn about() -> Html {
                             <div class="stat-label">{"Years of Excellence"}</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">{"3+"}</div>
+                            <div class="stat-number">{"9+"}</div>
                             <div class="stat-label">{"Happy Clients"}</div>
                         </div>
                     </div>
