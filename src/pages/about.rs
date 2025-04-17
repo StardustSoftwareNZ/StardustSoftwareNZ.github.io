@@ -1,7 +1,9 @@
 use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
+use crate::routes::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 /// About Us - about.rs
 /// ===================
@@ -227,8 +229,8 @@ pub fn about() -> Html {
                         <h2>{"Ready to Work With Us?"}</h2>
                         <p>{"Let's discuss how we can help bring your software vision to life."}</p>
                         <div class="about-cta-buttons">
-                            <a href="/contact" class="btn btn-primary">{"Get in Touch"}</a>
-                            <a href="/services" class="btn btn-secondary">{"Explore Our Services"}</a>
+                            <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Get in Touch"}</Link<Route>>
+                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Explore Our Services"}</Link<Route>>
                         </div>
                     </div>
                 </div>

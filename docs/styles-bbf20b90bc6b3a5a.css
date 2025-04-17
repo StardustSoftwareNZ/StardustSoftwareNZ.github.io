@@ -1017,7 +1017,7 @@ section {
 }
 
 /* Error Message Styling */
-.error-message {
+.projects-loading-container .error-message {
   background-color: #fff8f8;
   color: #a0aec0;
   text-align: center;
@@ -1176,7 +1176,7 @@ section {
 }
 
 /* Error Message Styling */
-.error-message {
+.projects-loading-container .error-message {
   background-color: #f8f9fa;
   color: #a0aec0;
   text-align: center;
