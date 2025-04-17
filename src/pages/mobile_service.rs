@@ -86,6 +86,11 @@ pub fn mobile_applications_service() -> Html {
     // Define technology stack
     let technologies = vec![
         Technology {
+            name: "Ionic".to_string(),
+            description: "Build Native and Progressive Web Apps from a single code base with Ionic React.".to_string(),
+            image: "https://ionicframework.com/img/react/logo.png".to_string(),
+        },
+        Technology {
             name: "Flutter".to_string(),
             description: "Cross-platform UI toolkit by Google".to_string(),
             image: "https://storage.googleapis.com/cms-storage-bucket/6e19fee6b47b36ca613f.png".to_string(),
@@ -101,9 +106,14 @@ pub fn mobile_applications_service() -> Html {
             image: "https://firebase.google.com/downloads/brand-guidelines/PNG/logo-logomark.png".to_string(),
         },
         Technology {
-            name: "Ionic".to_string(),
-            description: "Build Native and Progressive Web Apps from a single code base with Ionic React.".to_string(),
-            image: "https://ionicframework.com/img/react/logo.png".to_string(),
+            name: "Supabase".to_string(),
+            description: "Open-source Firebase alternative for building applications".to_string(),
+            image: "https://logowik.com/content/uploads/images/supabase-icon9119.logowik.com.webp".to_string(),
+        },
+        Technology {
+            name: "PostgreSQL".to_string(),
+            description: "Open-source relational database management system".to_string(),
+            image: "https://www.postgresql.org/media/img/about/press/elephant.png".to_string(),
         },
     ];
 
