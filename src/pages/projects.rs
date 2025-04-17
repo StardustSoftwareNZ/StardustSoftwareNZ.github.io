@@ -15,6 +15,8 @@ enum ProjectCategory {
     WebApplication,
     MobileApp,
     ArtificialIntelligence,
+    CloudComputing,
+    CustomSoftware,
 }
 
 /// Projects - projects.rs
@@ -76,6 +78,8 @@ pub fn projects() -> Html {
                 ProjectCategory::WebApplication => project.category == "Web Application",
                 ProjectCategory::MobileApp => project.category == "Mobile Application",
                 ProjectCategory::ArtificialIntelligence => project.category == "Artificial Intelligence",
+                ProjectCategory::CloudComputing => project.category == "Cloud Computing",
+                ProjectCategory::CustomSoftware => project.category == "Custom Software",
             }
         })
         .cloned()
@@ -199,6 +203,18 @@ pub fn projects() -> Html {
                                     onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::ArtificialIntelligence))}
                                 >
                                     {"Artificial Intelligence"}
+                                </button>
+                                <button 
+                                    class={if is_category_active(&ProjectCategory::CloudComputing) { "category-tab active" } else { "category-tab" }}
+                                    onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::CloudComputing))}
+                                >
+                                    {"Cloud Computing"}
+                                </button>
+                                <button 
+                                    class={if is_category_active(&ProjectCategory::CustomSoftware) { "category-tab active" } else { "category-tab" }}
+                                    onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::CustomSoftware))}
+                                >
+                                    {"Custom Software"}
                                 </button>
                             </div>
                             
