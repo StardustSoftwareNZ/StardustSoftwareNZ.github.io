@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stardust Software NZ 🇳🇿</title>
+        <link rel="icon" type="image/png" href="/public/logo.png">
+        <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+        <link rel="stylesheet" href="/styles-f12ba7302ccbc9ea.css" integrity="sha384-2BJYquFspWFKcWvZPzxvXELjdXKELG+cP1KBDAVLE7QY9pB4BY0c1T1ReYiWxju+"/>
+        
+<script type="module">
+import init, * as bindings from '/website-c819d3d1e9c42480.js';
+const wasm = await init({ module_or_path: '/website-c819d3d1e9c42480_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="modulepreload" href="/website-c819d3d1e9c42480.js" crossorigin="anonymous" integrity="sha384-gmcFOpvPWxQlgNqCGYVpGm1xCkxY7aunrinWFgjFHsGPAT2yBa+ZvTJnEAg8fDrB"><link rel="preload" href="/website-c819d3d1e9c42480_bg.wasm" crossorigin="anonymous" integrity="sha384-9l8aeAkB3KcsMYtbC1cuyIyftyjpriQnCsQwFhwBVusgzSyIkT8SvzfyyIM5gC66" as="fetch" type="application/wasm"></head>
+</html>
