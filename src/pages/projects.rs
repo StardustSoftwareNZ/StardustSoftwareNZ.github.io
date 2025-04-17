@@ -116,8 +116,19 @@ pub fn projects() -> Html {
             if *loading {
                 <section class="loading-section">
                     <div class="container">
-                        <div class="loading-indicator">
-                            <p>{"Loading projects..."}</p>
+                        <div class="projects-loading-container">
+                            <div class="loading-message">{"Discovering stellar projects"}</div>
+                            <div class="loading-animation">
+                                <div class="orbit">
+                                    <div class="planet"></div>
+                                    <div class="satellite satellite-1"></div>
+                                    <div class="satellite satellite-2"></div>
+                                    <div class="satellite satellite-3"></div>
+                                </div>
+                                <div class="loading-bar">
+                                    <div class="loading-progress"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

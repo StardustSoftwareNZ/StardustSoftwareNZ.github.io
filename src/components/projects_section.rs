@@ -72,8 +72,16 @@ pub fn projects_section(props: &ProjectsSectionProps) -> Html {
                 {
                     if *loading {
                         html! {
-                            <div class="loading-indicator">
-                                <p>{"Loading projects..."}</p>
+                            <div class="projects-loading-container">
+                                <div class="loading-message">{"Loading our stellar projects"}</div>
+                                <div class="loading-animation">
+                                    <div class="bubble bubble-1"></div>
+                                    <div class="bubble bubble-2"></div>
+                                    <div class="bubble bubble-3"></div>
+                                    <div class="loading-bar">
+                                        <div class="loading-progress"></div>
+                                    </div>
+                                </div>
                             </div>
                         }
                     } else {
