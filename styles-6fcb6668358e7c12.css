@@ -62,11 +62,10 @@ section {
     max-width: 700px;
     margin: 0 auto;
 }
-
 /* ====================================
-   NAVIGATION 
+   NAVIGATION - IMPROVED MOBILE RESPONSIVENESS
    ==================================== */
-.nav-container {
+   .nav-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -210,6 +209,8 @@ section {
     box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .nav-contact-btn:hover {
@@ -231,6 +232,8 @@ section {
     color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
     transition: transform 0.3s;
+    padding: 0.5rem;
+    line-height: 1;
 }
 
 .nav-mobile-toggle:hover {
@@ -244,18 +247,18 @@ section {
     top: 72px;
     left: 0;
     width: 100%;
+    height: calc(100vh - 72px);
     background: linear-gradient(135deg, rgba(18, 41, 76, 0.98), rgba(14, 32, 59, 0.98));
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     z-index: 999;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     flex-direction: column;
-    gap: 1rem;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    gap: 1.2rem;
+    overflow-y: auto;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-mobile-menu-open {
@@ -270,12 +273,12 @@ section {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    padding: 0.9rem 1rem;
+    padding: 1rem;
     border-radius: 8px;
     transition: all 0.25s ease;
 }
 
-.nav-mobile-link:hover {
+.nav-mobile-link:hover, .nav-mobile-link:active {
     background-color: rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 1);
 }
@@ -295,10 +298,127 @@ section {
     box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-decoration: none;
+    display: block;
 }
 
-.nav-mobile-contact-btn:hover {
+.nav-mobile-contact-btn:hover, .nav-mobile-contact-btn:active {
     background: linear-gradient(135deg, #3d9eee, #00e3ef);
+    transform: translateY(-3px);
+}
+
+/* Prevent body scrolling when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Improved media queries for better mobile experience */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .nav-scrolled {
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .nav-links-desktop {
+        gap: 1.2rem;
+    }
+    
+    .nav-link, .nav-link-active {
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .nav-contact-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-links-desktop {
+        gap: 0.8rem;
+    }
+    
+    .nav-text {
+        display: none;
+    }
+    
+    .nav-link, .nav-link-active {
+        padding: 0.5rem;
+    }
+    
+    .nav-icon {
+        margin: 0;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0.75rem 1.2rem;
+    }
+    
+    .nav-company-name {
+        font-size: 1.4rem;
+    }
+    
+    .nav-links-desktop {
+        display: none;
+    }
+    
+    .nav-mobile-toggle {
+        display: block;
+    }
+    
+    .nav-mobile-menu {
+        display: flex;
+    }
+    
+    .nav-mobile-menu-open {
+        top: calc(var(--nav-height, 72px));
+        height: calc(100vh - var(--nav-height, 72px));
+    }
+    
+    .nav-scrolled + .nav-mobile-menu-open {
+        top: calc(var(--nav-height-scrolled, 60px));
+        height: calc(100vh - var(--nav-height-scrolled, 60px));
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+    
+    .nav-brand {
+        gap: 0.5rem;
+    }
+    
+    .nav-logo {
+        height: 2.5rem;
+    }
+    
+    .nav-company-name {
+        font-size: 1.2rem;
+    }
+    
+    .nav-mobile-toggle {
+        font-size: 1.5rem;
+    }
+    
+    .nav-mobile-link {
+        font-size: 1.1rem;
+        padding: 0.9rem;
+    }
+}
+
+/* Set CSS variables for nav heights to use in mobile menu calculations */
+:root {
+    --nav-height: 72px;
+    --nav-height-scrolled: 60px;
 }
 
 /* ====================================
