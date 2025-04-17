@@ -10,12 +10,14 @@ mod routes;
 mod api;
 
 use crate::routes::{switch, Route};
+use crate::components::scroll_to_top::ScrollToTop;
 
 /// The App component is the root component of the application.
 #[function_component(App)]
 fn app() -> Html {
     html! {
         <BrowserRouter>
+            <ScrollToTop />
             <Switch<Route> render={Switch::render(switch)} />
         </BrowserRouter>
     }

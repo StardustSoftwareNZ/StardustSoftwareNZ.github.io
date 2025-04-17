@@ -1,5 +1,12 @@
 use serde::{Deserialize, Serialize};
+use wasm_bindgen::prelude::*;
+use wasm_bindgen_futures::{JsFuture, spawn_local};
+use web_sys::{Request, RequestInit, RequestMode, Response};
+use dotenv_codegen::dotenv;
+use gloo_utils::format::JsValueSerdeExt; // Add this for into_serde
+use yew::prelude::*;
 
+// Define the Project struct the same as before
 #[derive(Clone, PartialEq, Serialize, Deserialize, Debug)]
 pub struct Project {
     pub id: String,
@@ -10,7 +17,50 @@ pub struct Project {
     pub case_study_url: String,
 }
 
-pub fn get_projects() -> Vec<Project> {
+// Constants from .env file
+const SUPABASE_URL: &str = dotenv!("SUPABASE_URL");
+const SUPABASE_API_KEY: &str = dotenv!("SUPABASE_KEY");
+
+// Function to get projects from Supabase
+pub async fn fetch_projects() -> Result<Vec<Project>, JsValue> {
+    // Create request object
+    let mut opts = RequestInit::new();
+    opts.method("GET");
+    opts.mode(RequestMode::Cors);
+    
+    // Configure request with Supabase headers
+    let url = format!("{}/rest/v1/projects?select=*", SUPABASE_URL);
+    let request = Request::new_with_str_and_init(&url, &opts)?;
+    
+    // Add required headers for Supabase
+    let headers = request.headers();
+    headers.set("apikey", SUPABASE_API_KEY)?;
+    headers.set("Authorization", &format!("Bearer {}", SUPABASE_API_KEY))?;
+    headers.set("Content-Type", "application/json")?;
+    headers.set("Prefer", "return=representation")?;
+    
+    // Send the request
+    let window = web_sys::window().unwrap();
+    let resp_value = JsFuture::from(window.fetch_with_request(&request)).await?;
+    let resp: Response = resp_value.dyn_into()?;
+    
+    // Check for successful response
+    if !resp.ok() {
+        let status = resp.status();
+        return Err(JsValue::from_str(&format!("Error fetching projects: {}", status)));
+    }
+    
+    // Parse the JSON response
+    let json = JsFuture::from(resp.json()?).await?;
+    let projects: Vec<Project> = json.into_serde().map_err(|e| {
+        JsValue::from_str(&format!("Error deserializing projects: {}", e))
+    })?;
+    
+    Ok(projects)
+}
+
+// Fallback to get hardcoded projects in case the API fails
+pub fn get_hardcoded_projects() -> Vec<Project> {
     vec![
         Project {
             id: "project-1".to_string(),
@@ -61,4 +111,79 @@ pub fn get_projects() -> Vec<Project> {
             case_study_url: "https://github.com/woodRock/autograd".to_string(),
         }
     ]
+}
+
+// Public function that components will call
+pub fn get_projects() -> Vec<Project> {
+    // Return the hardcoded projects initially
+    // The actual component using this should implement the async fetch
+    get_hardcoded_projects()
+}
+
+// Example component usage (this would be in your projects component file)
+#[function_component(ProjectsComponent)]
+pub fn projects_component() -> Html {
+    let projects = use_state(|| Vec::<Project>::new());
+    let loading = use_state(|| true);
+    let error = use_state(|| None::<String>);
+    
+    // Effect to fetch projects on component mount
+    {
+        let projects = projects.clone();
+        let loading = loading.clone();
+        let error = error.clone();
+        
+        use_effect_with_deps(
+            move |_| {
+                spawn_local(async move {
+                    match fetch_projects().await {
+                        Ok(fetched_projects) => {
+                            projects.set(fetched_projects);
+                            loading.set(false);
+                        },
+                        Err(err) => {
+                            // Log the error
+                            web_sys::console::error_1(&err);
+                            // Fallback to hardcoded projects
+                            projects.set(get_hardcoded_projects());
+                            error.set(Some(format!("Error: {:?}", err)));
+                            loading.set(false);
+                        }
+                    }
+                });
+                
+                || ()
+            },
+            (), // Empty dependencies - only run once on mount
+        );
+    }
+    
+    // Render the projects
+    html! {
+        <div class="projects-container">
+            if *loading {
+                <p>{"Loading projects..."}</p>
+            } else {
+                if let Some(err_msg) = &*error {
+                    <div class="error-message">
+                        <p>{format!("Error loading from API (using fallback data): {}", err_msg)}</p>
+                    </div>
+                }
+                <div class="projects-grid">
+                    {
+                        projects.iter().map(|project| {
+                            html! {
+                                <div key={project.id.clone()} class="project-card">
+                                    <h3>{&project.title}</h3>
+                                    <p>{&project.category}</p>
+                                    <p>{&project.description}</p>
+                                    // Add image, links, etc.
+                                </div>
+                            }
+                        }).collect::<Html>()
+                    }
+                </div>
+            }
+        </div>
+    }
 }

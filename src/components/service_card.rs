@@ -16,7 +16,7 @@ pub fn service_card(props: &ServiceCardProps) -> Html {
     let onclick = Callback::once(move |_| history.push(service_route));
 
     html! {
-        <div class="service-card-wrapper"> // Added wrapper div
+        <div class="service-card-wrapper">
             <div class="service-card">
                 <div class="service-icon">
                     <svg viewBox={service.icon.viewbox.clone()} width="64" height="64">

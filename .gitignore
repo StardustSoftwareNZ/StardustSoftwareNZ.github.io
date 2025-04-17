@@ -6,3 +6,6 @@ Cargo.lock
 
 # Compiled Javascript/HTML/CSS files.
 /dist
+
+# The environment file for dotenv.
+.env

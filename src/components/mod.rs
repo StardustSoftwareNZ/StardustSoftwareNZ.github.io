@@ -19,3 +19,4 @@ pub mod contact_section;
 pub mod process_section;
 pub mod about_section;
 pub mod footer;
+pub mod scroll_to_top;

@@ -2,11 +2,12 @@ use crate::components::navigation::Navigation;
 use crate::components::footer::Footer;
 use crate::components::section_header::SectionHeader;
 use crate::components::process_section::ProcessSection;
-use crate::api::projects::get_projects;
+use crate::api::projects::{get_projects, fetch_projects, get_hardcoded_projects};
 use crate::components::project_card::ProjectCard;
 use crate::routes::Route;
 use yew::prelude::*;
 use yew_router::prelude::*;
+use wasm_bindgen_futures::spawn_local;
 
 #[derive(Clone, Debug, PartialEq)]
 enum ProjectCategory {
@@ -24,17 +25,50 @@ pub fn projects() -> Html {
     // State for the active category filter
     let active_category = use_state(|| ProjectCategory::All);
     
-    // Get all projects
-    let all_projects = get_projects();
+    // State for storing projects
+    let projects_data = use_state(|| get_hardcoded_projects());
+    let loading = use_state(|| true);
+    let error = use_state(|| None::<String>);
+    
+    // Fetch projects on component mount
+    {
+        let projects_data = projects_data.clone();
+        let loading = loading.clone();
+        let error = error.clone();
+        
+        use_effect_with_deps(
+            move |_| {
+                spawn_local(async move {
+                    match fetch_projects().await {
+                        Ok(fetched_projects) => {
+                            projects_data.set(fetched_projects);
+                            loading.set(false);
+                        },
+                        Err(err) => {
+                            // Log the error
+                            web_sys::console::error_1(&err);
+                            // Fallback to hardcoded projects
+                            projects_data.set(get_hardcoded_projects());
+                            error.set(Some(format!("Error: {:?}", err)));
+                            loading.set(false);
+                        }
+                    }
+                });
+                
+                || ()
+            },
+            (), // Empty dependencies - only run once on mount
+        );
+    }
     
     // Create featured projects (first 3)
-    let featured_projects = all_projects.iter()
+    let featured_projects = projects_data.iter()
         .take(3)
         .cloned()
         .collect::<Vec<_>>();
     
     // Filter projects based on active category
-    let filtered_projects = all_projects.iter()
+    let filtered_projects = projects_data.iter()
         .skip(3) // Skip featured projects
         .filter(|project| {
             match *active_category {
@@ -78,86 +112,109 @@ pub fn projects() -> Html {
                 <div class="page-header-backdrop"></div>
             </section>
             
-            // Featured Projects Section
-            <section class="featured-projects-section">
-                <div class="container">
-                    <SectionHeader 
-                        title="Featured Projects" 
-                        subtitle={Some("Our most impactful work".to_string())}
-                    />
-                    
-                    <div class="featured-projects-grid">
-                        {
-                            featured_projects.into_iter().map(|project| {
-                                html! {
-                                    <div class="featured-project-item">
-                                        <ProjectCard key={project.id.clone()} project={project.clone()} />
-                                    </div>
-                                }
-                            }).collect::<Html>()
-                        }
+            // Loading State
+            if *loading {
+                <section class="loading-section">
+                    <div class="container">
+                        <div class="loading-indicator">
+                            <p>{"Loading projects..."}</p>
+                        </div>
                     </div>
-                </div>
-            </section>
-            
-            // Project Categories Tabs
-            <section class="project-categories-section">
-                <div class="container">
-                    <SectionHeader 
-                        title="Browse by Category" 
-                        subtitle={Some("Filter projects by expertise area".to_string())}
-                    />
+                </section>
+            } else {
+                <>
+                    // Error Message (if any)
+                    if let Some(err_msg) = &*error {
+                        <section class="error-section">
+                            <div class="container">
+                                <div class="error-message">
+                                    <p>{format!("Note: Using fallback data. {}", err_msg)}</p>
+                                </div>
+                            </div>
+                        </section>
+                    }
                     
-                    <div class="category-tabs">
-                        <button 
-                            class={if is_category_active(&ProjectCategory::All) { "category-tab active" } else { "category-tab" }}
-                            onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::All))}
-                        >
-                            {"All"}
-                        </button>
-                        <button 
-                            class={if is_category_active(&ProjectCategory::WebApplication) { "category-tab active" } else { "category-tab" }}
-                            onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::WebApplication))}
-                        >
-                            {"Web Applications"}
-                        </button>
-                        <button 
-                            class={if is_category_active(&ProjectCategory::MobileApp) { "category-tab active" } else { "category-tab" }}
-                            onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::MobileApp))}
-                        >
-                            {"Mobile Apps"}
-                        </button>
-                        <button 
-                            class={if is_category_active(&ProjectCategory::ArtificialIntelligence) { "category-tab active" } else { "category-tab" }}
-                            onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::ArtificialIntelligence))}
-                        >
-                            {"Artificial Intelligence"}
-                        </button>
-                    </div>
-                    
-                    <div class="projects-grid">
-                        {
-                            if filtered_projects.is_empty() {
-                                html! {
-                                    <div class="no-projects-message">
-                                        <p>{"No projects found in this category."}</p>
-                                        <p>{"Please check back later or browse another category."}</p>
-                                    </div>
+                    // Featured Projects Section
+                    <section class="featured-projects-section">
+                        <div class="container">
+                            <SectionHeader 
+                                title="Featured Projects" 
+                                subtitle={Some("Our most impactful work".to_string())}
+                            />
+                            
+                            <div class="featured-projects-grid">
+                                {
+                                    featured_projects.into_iter().map(|project| {
+                                        html! {
+                                            <div class="featured-project-item">
+                                                <ProjectCard key={project.id.clone()} project={project.clone()} />
+                                            </div>
+                                        }
+                                    }).collect::<Html>()
                                 }
-                            } else {
-                                filtered_projects.into_iter().map(|project| {
-                                    html! {
-                                        <ProjectCard key={project.id.clone()} project={project.clone()} />
+                            </div>
+                        </div>
+                    </section>
+                    
+                    // Project Categories Tabs
+                    <section class="project-categories-section">
+                        <div class="container">
+                            <SectionHeader 
+                                title="Browse by Category" 
+                                subtitle={Some("Filter projects by expertise area".to_string())}
+                            />
+                            
+                            <div class="category-tabs">
+                                <button 
+                                    class={if is_category_active(&ProjectCategory::All) { "category-tab active" } else { "category-tab" }}
+                                    onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::All))}
+                                >
+                                    {"All"}
+                                </button>
+                                <button 
+                                    class={if is_category_active(&ProjectCategory::WebApplication) { "category-tab active" } else { "category-tab" }}
+                                    onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::WebApplication))}
+                                >
+                                    {"Web Applications"}
+                                </button>
+                                <button 
+                                    class={if is_category_active(&ProjectCategory::MobileApp) { "category-tab active" } else { "category-tab" }}
+                                    onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::MobileApp))}
+                                >
+                                    {"Mobile Apps"}
+                                </button>
+                                <button 
+                                    class={if is_category_active(&ProjectCategory::ArtificialIntelligence) { "category-tab active" } else { "category-tab" }}
+                                    onclick={let cb = on_category_click.clone(); Callback::from(move |_| cb.emit(ProjectCategory::ArtificialIntelligence))}
+                                >
+                                    {"Artificial Intelligence"}
+                                </button>
+                            </div>
+                            
+                            <div class="projects-grid">
+                                {
+                                    if filtered_projects.is_empty() {
+                                        html! {
+                                            <div class="no-projects-message">
+                                                <p>{"No projects found in this category."}</p>
+                                                <p>{"Please check back later or browse another category."}</p>
+                                            </div>
+                                        }
+                                    } else {
+                                        filtered_projects.into_iter().map(|project| {
+                                            html! {
+                                                <ProjectCard key={project.id.clone()} project={project.clone()} />
+                                            }
+                                        }).collect::<Html>()
                                     }
-                                }).collect::<Html>()
-                            }
-                        }
-                    </div>
-                </div>
-            </section>
+                                }
+                            </div>
+                        </div>
+                    </section>
+                </>
+            }
             
             // Project Process Section
-            // Process Section
             <ProcessSection id={"process"} />
             
             // Call to Action

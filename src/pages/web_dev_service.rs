@@ -126,7 +126,7 @@ pub fn web_development_service() -> Html {
         Technology {
             name: "Deno".to_string(),
             description: "Secure runtime for JavaScript and TypeScript".to_string(),
-            image: "https://deno.com/logo.svg".to_string(),
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Deno_Logo_2024.svg/2048px-Deno_Logo_2024.svg.png".to_string(),
         },
         Technology {
             name: "Fresh".to_string(),

@@ -1,7 +1,8 @@
 use yew::prelude::*;
-use crate::api::projects::get_projects;
+use crate::api::projects::{fetch_projects, get_hardcoded_projects};
 use crate::components::section_header::SectionHeader;
 use crate::components::project_card::ProjectCard;
+use wasm_bindgen_futures::spawn_local;
 
 #[derive(Properties, PartialEq)]
 pub struct ProjectsSectionProps {
@@ -16,34 +17,104 @@ pub struct ProjectsSectionProps {
 /// Projects section component to showcase featured projects
 #[function_component(ProjectsSection)]
 pub fn projects_section(props: &ProjectsSectionProps) -> Html {
-    // Get all projects and limit them based on the prop
-    let all_projects = get_projects();
-    let projects = all_projects.into_iter().take(props.limit).collect::<Vec<_>>();
+    // State for storing projects
+    let projects = use_state(|| Vec::new());
+    let loading = use_state(|| true);
+    let error = use_state(|| None::<String>);
+    
+    // Fetch projects on component mount
+    {
+        let projects = projects.clone();
+        let loading = loading.clone();
+        let error = error.clone();
+        
+        use_effect_with_deps(
+            move |_| {
+                spawn_local(async move {
+                    match fetch_projects().await {
+                        Ok(fetched_projects) => {
+                            projects.set(fetched_projects);
+                            loading.set(false);
+                        },
+                        Err(err) => {
+                            // Log the error
+                            web_sys::console::error_1(&err);
+                            // Fallback to hardcoded projects
+                            projects.set(get_hardcoded_projects());
+                            error.set(Some(format!("Error: {:?}", err)));
+                            loading.set(false);
+                        }
+                    }
+                });
+                
+                || ()
+            },
+            (), // Empty dependencies - only run once on mount
+        );
+    }
+    
+    // Limit projects based on the prop
+    let display_projects = projects.iter()
+        .take(props.limit)
+        .cloned()
+        .collect::<Vec<_>>();
     
     let id_attr = props.id.clone().unwrap_or("projects".to_string());
     
     html! {
         <section id={id_attr} class="projects-section">
             <div class="container">
-                <SectionHeader 
-                    title="Featured Projects" 
+                <SectionHeader
+                    title="Featured Projects"
                     subtitle={Some("Some of our finest work".to_string())}
                 />
                 
-                <div class="projects-grid">
-                    {
-                        projects.into_iter().map(|project| {
-                            html! {
-                                <ProjectCard key={project.id.clone()} project={project.clone()} />
-                            }
-                        }).collect::<Html>()
+                {
+                    if *loading {
+                        html! {
+                            <div class="loading-indicator">
+                                <p>{"Loading projects..."}</p>
+                            </div>
+                        }
+                    } else {
+                        html! {
+                            <>
+                                {
+                                    if let Some(err_msg) = &*error {
+                                        html! {
+                                            <div class="error-message">
+                                                <p>{"Using fallback project data"}</p>
+                                            </div>
+                                        }
+                                    } else {
+                                        html! {}
+                                    }
+                                }
+                                
+                                <div class="projects-grid">
+                                    {
+                                        display_projects.into_iter().map(|project| {
+                                            html! {
+                                                <ProjectCard key={project.id.clone()} project={project.clone()} />
+                                            }
+                                        }).collect::<Html>()
+                                    }
+                                </div>
+                                
+                                {
+                                    if props.show_cta {
+                                        html! {
+                                            <div class="projects-cta">
+                                                <a href="/projects" class="btn btn-outline">{"View All Projects"}</a>
+                                            </div>
+                                        }
+                                    } else {
+                                        html! {}
+                                    }
+                                }
+                            </>
+                        }
                     }
-                </div>
-                
-                if props.show_cta {
-                    <div class="projects-cta">
-                        <a href="/projects" class="btn btn-outline">{"View All Projects"}</a>
-                    </div>
                 }
             </div>
         </section>

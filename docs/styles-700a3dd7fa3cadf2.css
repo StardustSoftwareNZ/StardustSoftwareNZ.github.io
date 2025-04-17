@@ -598,99 +598,136 @@ section {
 /* ====================================
    SERVICES SECTION 
    ==================================== */
+ /* Alternative approach using flexbox instead of grid */
 .services-section {
-    background-color: #f9fafb;
+  background-color: #f9fafb;
+  padding: 3rem 1rem;
 }
- 
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Using flexbox as an alternative to grid */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.service-card-wrapper {
+  width: calc(33.333% - 1.333rem); /* 3 columns with gap factored in */
+  min-width: 280px; /* Minimum size */
 }
 
 .service-card {
-    background-color: white;
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon {
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .service-title {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #2d3748;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
 }
 
 .service-description {
-    color: #718096;
-    margin-bottom: 1.5rem;
+  color: #718096;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .service-link {
-    color: #4facfe;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    position: relative;
+  color: #4facfe;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  margin-top: auto;
 }
 
 .service-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  transition: width 0.3s ease;
 }
 
 .service-link:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 992px) {
+  .service-card-wrapper {
+      width: calc(50% - 1rem); /* 2 columns on medium screens */
+  }
+}
+
+/* Mobile breakpoint */
 @media (max-width: 768px) {
-  .services-grid {
-      display: flex; /* Use flexbox on mobile */
-      flex-direction: column; /* Stack vertically */
+  .service-card-wrapper {
+      width: 100% !important; /* Single column on mobile */
+      min-width: 100%;
   }
 
   .service-card {
-      padding: 1.5rem; /* Adjust padding for mobile */
-      text-align: left; /* Align text left */
-      width: 100%; /* Ensure full width on mobile */
+      padding: 1.5rem;
+      text-align: left;
   }
 
   .service-icon {
-      justify-content: left; /* Align icon left */
-      margin-bottom: 1rem; /* Adjust margin */
+      justify-content: flex-start;
+      margin-bottom: 1rem;
   }
 
   .service-title {
-      font-size: 1.2rem; /* Adjust font size */
-      margin-bottom: 0.5rem; /* Adjust margin */
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
   }
 
   .service-description {
-      font-size: 1rem; /* Adjust font size */
-      margin-bottom: 1rem; /* Adjust margin */
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
   }
+}
 
-  .service-link {
-      font-size: 1rem; /* Adjust font size */
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .services-section {
+      padding: 2rem 0.75rem;
+  }
+  
+  .services-grid {
+      gap: 1.5rem;
+  }
+  
+  .service-card {
+      padding: 1.25rem;
   }
 }
 

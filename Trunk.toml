@@ -19,3 +19,5 @@ release = true
 dist = "docs"
 # The public URL from which assets are to be served
 public_url = "/"
+# Environment variables.
+env = { "SUPABASE_URL" = "", "SUPABASE_KEY" = ""}

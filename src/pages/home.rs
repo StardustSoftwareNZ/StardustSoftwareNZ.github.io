@@ -84,7 +84,7 @@ pub fn home() -> Html {
             // Testimonials Section
             <TestimonialsSection 
                 id={"testimonials"} 
-                limit={2} 
+                limit={3} 
             />
             
             // Contact Section
