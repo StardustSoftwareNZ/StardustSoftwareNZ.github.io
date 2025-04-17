@@ -40,25 +40,30 @@ pub fn cloud_solutions_service() -> Html {
     // Define case studies
     let case_studies = vec![
         CaseStudy {
-            title: "Enterprise-Scale Cloud Migration for Financial Services Firm".to_string(),
-            industry: "Financial Services, Banking, FinTech".to_string(),
-            challenge: "A mid-sized financial services company was struggling with an aging on-premises infrastructure that was becoming increasingly expensive to maintain and scale. They faced challenges with system reliability during peak trading hours, had concerns about disaster recovery capabilities, and needed to meet stringent regulatory compliance requirements while improving their ability to deploy new services rapidly.".to_string(),
-            solution: "We designed and implemented a comprehensive cloud migration strategy using a hybrid approach. Critical systems were migrated to AWS with robust security controls and compliance measures. We implemented infrastructure as code using Terraform, set up automated CI/CD pipelines, and established real-time monitoring and alerting. The solution included auto-scaling capabilities to handle variable workloads and a comprehensive disaster recovery system with regular testing protocols.".to_string(),
-            result: "The migration resulted in a 40% reduction in infrastructure costs and a 99.99% uptime achievement. System performance improved by 35%, with trading platforms now able to handle 3x the previous peak load. Deployment time for new features decreased from weeks to hours through the CI/CD pipeline, and the company passed their compliance audit with flying colors. The cloud infrastructure also enabled them to launch two new financial products ahead of schedule, gaining them significant market advantage.".to_string(),
-            image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string(),
+            title: "Modernizing Academic Research Data Management for NZODN".to_string(),
+            industry: "Oceanographic Research, Environmental Science, Academic Research".to_string(),
+            challenge: "The New Zealand Ocean Data Network (NZODN) required a solution to publish academic research data on their data portal as part of contract work for the National Institute of Water and Atmospheric Research (NIWA). The existing data migration process was in disarray - undocumented, written in bespoke Python and Bash scripts by a third party, poorly maintained, and incapable of handling continuous ingestion streams. This created significant barriers for researchers trying to publish their findings and made data management unnecessarily complex and error-prone.".to_string(),
+            solution: "We designed and implemented a robust, maintainable data migration system that prioritized security, automation, and sustainability. The solution utilized Secure File Transfer Protocol (SFTP) for safe and reliable file transfers, standardized Bash scripts for processing, and scheduled Cron jobs for automated execution. We integrated GeoServer to process and publish tile layers to a Web Map Service (WMS) on the NZODN portal, while GeoNetwork was employed to manage and publish comprehensive metadata about the academic research data. The entire system was thoroughly documented with clear process flows, error handling procedures, and maintenance guidelines.".to_string(),
+            result: "The modernized data migration system dramatically improved the efficiency and reliability of publishing academic research data to the NZODN portal. Researchers now have a clear, documented process for submitting their data, with automated validation checks ensuring data quality. The system can handle continuous data ingestion streams, eliminating previous bottlenecks. Administrative overhead has been reduced by approximately 70%, while successful data publications increased by 45%. The improved metadata management through GeoNetwork has enhanced the discoverability and usability of research data, leading to increased citations and research impact. NIWA now has a sustainable, maintainable system that can evolve with changing research needs.".to_string(),
+            image_url: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string(),
         },
         CaseStudy {
-            title: "Serverless Architecture for High-Traffic E-commerce Platform".to_string(),
-            industry: "Retail, E-commerce, Online Shopping".to_string(),
-            challenge: "A rapidly growing e-commerce platform was experiencing performance issues during seasonal shopping peaks, with their traditional server architecture unable to scale quickly enough to meet demand. They faced cart abandonment due to slow response times and were incurring high costs maintaining excess capacity year-round to prepare for peak periods. Additionally, they needed to implement a microservices architecture to allow their development teams to work more efficiently.".to_string(),
-            solution: "We redesigned their application architecture using a serverless approach on Google Cloud Platform. The solution used Cloud Functions for backend processing, Firestore for real-time data storage, and Cloud Run for containerized microservices. We implemented event-driven architecture patterns to decouple services and enable independent scaling. A comprehensive caching strategy using Cloud CDN and Redis improved performance for product catalog browsing, while Cloud Pub/Sub handled asynchronous processing for order management.".to_string(),
-            result: "The new serverless architecture handled a 500% increase in traffic during Black Friday sales with zero performance degradation. Infrastructure costs decreased by 60% due to the pay-per-use model, eliminating the need for constant over-provisioning. Page load times improved by 45%, leading to a 28% reduction in cart abandonment rate. The decoupled architecture allowed development teams to deploy updates 3x more frequently, and the platform successfully processed 200,000 concurrent users during peak events with sub-second response times.".to_string(),
-            image_url: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string(),
+            title: "Wellington Chamber of Commerce Website Modernization".to_string(),
+            industry: "Business Association, Non-Profit, Professional Services".to_string(),
+            challenge: "The Wellington Chamber of Commerce and Business Central needed to modernize their outdated website while preserving years of valuable content. A significant portion of their resources and publications existed only as PDF documents, creating accessibility issues and limiting their digital reach. The client needed to maintain their existing Content Management System (CMS) while transforming hundreds of PDF-based resources into modern, responsive web content. Manual conversion would have been prohibitively time-consuming and inconsistent, potentially disrupting service to their business members.".to_string(),
+            solution: "We developed a custom PDF-to-web conversion pipeline that seamlessly integrated with their existing CMS. The solution utilized specialized Bash scripts and Markdown parsing utilities to automate the extraction and transformation of PDF content into clean, semantic HTML. Each document was processed to ensure proper heading structure, responsive images, and accessibility compliance. The conversion pipeline included validation checks to maintain content integrity and metadata preservation to ensure searchability. This tooling worked alongside their existing CMS, allowing staff to continue using familiar workflows while dramatically improving the quality and accessibility of the content.".to_string(),
+            result: "The custom conversion utilities accelerated the content migration process by a factor of ten compared to manual methods, allowing the entire library of resources to be transformed efficiently. The Chamber now delivers content through progressive, responsive web pages that load faster and are accessible across all devices - a significant improvement over the previous PDF-only approach. Search engine visibility improved dramatically as content became indexable, increasing organic traffic by 35%. Member engagement metrics showed a 28% increase in resource usage following the migration. The Chamber staff now have a standardized process for converting new publications to web format, ensuring sustainable content management going forward.".to_string(),
+            image_url: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80".to_string(),
         },
     ];
 
     // Define Cloud capabilities
     let cloud_capabilities = vec![
+        CloudCapability {
+            title: "Geospatial Information Systems".to_string(),
+            description: "Utilize advanced geospatial technologies to analyze, visualize, and manage location-based data for better decision-making.".to_string(),
+            icon: "🗺️".to_string(),
+        },
         CloudCapability {
             title: "Cloud Migration".to_string(),
             description: "Seamlessly transition your on-premises infrastructure to secure, scalable cloud environments with minimal disruption to your operations.".to_string(),
@@ -93,6 +98,31 @@ pub fn cloud_solutions_service() -> Html {
 
     // Define technology stack
     let technologies = vec![
+        Technology {
+            name: "PostgreSQL".to_string(),
+            description: "Open-source relational database management system".to_string(),
+            image: "https://www.postgresql.org/media/img/about/press/elephant.png".to_string(),
+        },
+        Technology {
+            name: "GeoServer".to_string(),
+            description: "Open-source server for sharing geospatial data".to_string(),
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTuXrnd87ishV1fCmY69X6Cc7J6oDPBEy-Fg&s".to_string(),
+        },
+        Technology {
+            name: "GeoNetwork".to_string(),
+            description: "Open-source catalog application for geospatial data".to_string(),
+            image: "https://camptocamp.com/expertise/partner-and-products/geonetwork/image-thumb__1163__hero-header-slider-without-teaser/geonetwork_logo-header.webp".to_string(),
+        },
+        Technology {
+            name: "Supabase".to_string(),
+            description: "Open-source Firebase alternative for building applications".to_string(),
+            image: "https://logowik.com/content/uploads/images/supabase-icon9119.logowik.com.webp".to_string(),
+        },
+        Technology {
+            name: "Firebase".to_string(),
+            description: "Google's mobile platform for building apps".to_string(),
+            image: "https://brandlogos.net/wp-content/uploads/2025/03/firebase_icon-logo_brandlogos.net_tcvck.png".to_string(),
+        },
         Technology {
             name: "AWS".to_string(),
             description: "Comprehensive cloud computing platform".to_string(),
