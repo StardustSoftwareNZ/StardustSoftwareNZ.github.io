@@ -371,7 +371,7 @@ pub fn cloud_solutions_service() -> Html {
                         <p>{"Let's discuss how our cloud solutions can help you improve scalability, reduce costs, and drive innovation."}</p>
                         <div class="cta-buttons">
                             <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Schedule a Cloud Consultation"}</Link<Route>>
-                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Get a Free Cloud Readiness Assessment"}</Link<Route>>
+                            <Link<Route> to={Route::CloudReadinessAssessment} classes="btn btn-secondary">{"Get a Free Cloud Readiness Assessment"}</Link<Route>>
                         </div>
                     </div>
                 </div>

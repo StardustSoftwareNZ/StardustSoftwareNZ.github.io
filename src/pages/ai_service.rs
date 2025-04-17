@@ -341,7 +341,7 @@ pub fn ai_service() -> Html {
                         <p>{"Let's discuss how our AI solutions can help you solve complex problems and create competitive advantages."}</p>
                         <div class="cta-buttons">
                             <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Schedule a Consultation"}</Link<Route>>
-                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Take Our AI Readiness Assessment"}</Link<Route>>
+                            <Link<Route> to={Route::AiReadinessAssessment} classes="btn btn-secondary">{"Take Our AI Readiness Assessment"}</Link<Route>>
                         </div>
                     </div>
                 </div>

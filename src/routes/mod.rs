@@ -22,6 +22,12 @@ pub enum Route {
     CustomService,
     #[at("/services/mobile-solutions")]
     MobileService,
+    #[at("/services/ai-readiness-assessment")]
+    AiReadinessAssessment,
+    #[at("/services/cloud-readiness-assessment")]
+    CloudReadinessAssessment,
+    #[at("/services/free-needs-assessment")]
+    FreeNeedsAssessment,
     #[at("/about")]
     About,
     #[at("/contact")]
@@ -46,6 +52,9 @@ pub fn switch(routes: &Route) -> Html {
         Route::CloudService => html! { <pages::cloud_service::CloudService /> },
         Route::CustomService => html! { <pages::custom_service::CustomService /> },
         Route::MobileService => html! { <pages::mobile_service::MobileService /> },
+        Route::AiReadinessAssessment => html! { <pages::ai_assessment::AiReadinessAssessment /> },
+        Route::CloudReadinessAssessment => html! { <pages::cloud_assessment::CloudReadinessAssessment /> },
+        Route::FreeNeedsAssessment => html! { <pages::custom_assessment::FreeNeedsAssessment /> },
         Route::Contact => html! { <pages::contact::Contact />},
         Route::Secure => html! { <pages::secure::Secure />},
         Route::Projects => html! { <pages::projects::Projects />},

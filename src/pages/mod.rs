@@ -35,3 +35,12 @@ pub use custom_service::CustomService;
 
 pub mod mobile_service;
 pub use mobile_service::MobileService;
+
+pub mod ai_assessment;
+pub use ai_assessment::AiReadinessAssessment;
+
+pub mod cloud_assessment;
+pub use cloud_assessment::CloudReadinessAssessment;
+
+pub mod custom_assessment;
+pub use custom_assessment::FreeNeedsAssessment;

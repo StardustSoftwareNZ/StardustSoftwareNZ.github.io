@@ -333,7 +333,7 @@ pub fn custom_solutions_service() -> Html {
                         <p>{"Let's discuss how a tailored solution can address your unique challenges and create lasting value for your organization."}</p>
                         <div class="cta-buttons">
                             <Link<Route> to={Route::Contact} classes="btn btn-primary">{"Schedule a Consultation"}</Link<Route>>
-                            <Link<Route> to={Route::NotFound} classes="btn btn-secondary">{"Request a Free Needs Assessment"}</Link<Route>>
+                            <Link<Route> to={Route::FreeNeedsAssessment} classes="btn btn-secondary">{"Request a Free Needs Assessment"}</Link<Route>>
                         </div>
                     </div>
                 </div>
