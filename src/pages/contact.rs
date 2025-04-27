@@ -131,7 +131,7 @@ pub fn contact() -> Html {
                             <h3>{"Visit Us"}</h3>
                             <address>
                                 {"Island Bay"}<br />
-                                {"Wellington 6011"}<br />
+                                {"Wellington 6023"}<br />
                                 {"New Zealand"}
                             </address>
                         </div>
